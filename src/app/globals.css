@@ -1,26 +1,560 @@
 @import "tailwindcss";
 
+/* ======================================
+   CRECE FINANCE - Brand Configuration
+   Manual de Marca Aplicado
+   ====================================== */
+
+@theme {
+  /* ========== BRAND COLORS ========== */
+  
+  /* Primary Blue - Azul Institucional
+     Representa: conocimiento, confianza, tecnología y poder económico
+     RGB: R33 G30 B68 */
+  --color-primary-blue-50: #f0f0f7;
+  --color-primary-blue-100: #d8d7e8;
+  --color-primary-blue-200: #b1afd1;
+  --color-primary-blue-300: #8a87ba;
+  --color-primary-blue-400: #635fa3;
+  --color-primary-blue-500: #3c378c;
+  --color-primary-blue-600: #302c70;
+  --color-primary-blue: #211e44;
+  --color-primary-blue-800: #1a1836;
+  --color-primary-blue-900: #131228;
+
+  /* Primary Gold - Dorado
+     Representa: prestigio, honor y valor
+     RGB: R229 G168 B16 */
+  --color-primary-gold-50: #fef9e8;
+  --color-primary-gold-100: #fcefc5;
+  --color-primary-gold-200: #f9df8b;
+  --color-primary-gold-300: #f6cf51;
+  --color-primary-gold: #e5a810;
+  --color-primary-gold-500: #cc950e;
+  --color-primary-gold-600: #a6790b;
+  --color-primary-gold-700: #805d09;
+  --color-primary-gold-800: #594106;
+  --color-primary-gold-900: #332504;
+
+  /* Degradados Institucionales (aguamarina, turquesa, índigo, fucsia) */
+  --color-turquoise: #00bcd4;
+  --color-aquamarine: #7fffd4;
+  --color-indigo: #3f51b5;
+  --color-fuchsia: #e91e63;
+
+  /* ========== TYPOGRAPHY ========== */
+  /* Google Fonts: Open Sans (body) + Roboto (headings) */
+  --font-sans: var(--font-open-sans), "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-roboto), "Roboto", ui-sans-serif, system-ui, sans-serif;
+
+  /* ========== ANIMATIONS ========== */
+  --animate-fade-in: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-fade-in-up: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-fade-in-down: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-down: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-scale-in: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-bounce-in: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-gradient: gradientFlow 8s ease infinite;
+}
+
+/* ======================================
+   CSS Custom Properties
+   ====================================== */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  
+  /* Animation Timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ======================================
+   Modern Keyframe Animations
+   ====================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(229, 168, 16, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(229, 168, 16, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes gradientFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes morphGradient {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+/* ======================================
+   Global Styles
+   ====================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ======================================
+   Custom Scrollbar (Brand Colors)
+   ====================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #211e44 0%, #302c70 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e5a810 0%, #cc950e 100%);
+}
+
+/* ======================================
+   Text Selection
+   ====================================== */
+
+::selection {
+  background: #e5a810;
+  color: #211e44;
+}
+
+/* ======================================
+   Animation Utility Classes
+   ====================================== */
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.4) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-morph {
+  animation: morphGradient 8s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* Initially hidden for animations */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+}
+
+/* ======================================
+   Gradient Utilities
+   ====================================== */
+
+.text-gradient {
+  background: linear-gradient(135deg, #211e44 0%, #e5a810 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #e5a810 0%, #f6cf51 50%, #e5a810 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #211e44 0%, #e5a810 100%);
+}
+
+.bg-gradient-brand-vertical {
+  background: linear-gradient(180deg, #211e44 0%, #e5a810 100%);
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(180deg, rgba(33, 30, 68, 0.95) 0%, rgba(229, 168, 16, 0.85) 100%);
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, #211e44, #302c70, #e5a810, #f6cf51);
+  background-size: 400% 400%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+/* Mesh Gradient Background */
+.bg-mesh-gradient {
+  background-color: #211e44;
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(229, 168, 16, 0.3) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(63, 81, 181, 0.2) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(0, 188, 212, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(233, 30, 99, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(229, 168, 16, 0.2) 0px, transparent 50%);
+}
+
+/* ======================================
+   Glass Morphism
+   ====================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(33, 30, 68, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 168, 16, 0.2);
+}
+
+.glass-gold {
+  background: rgba(229, 168, 16, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 168, 16, 0.3);
+}
+
+/* ======================================
+   Duotone Image Effect (Brand Manual)
+   ====================================== */
+
+.duotone {
+  position: relative;
+  filter: grayscale(100%) contrast(1.2);
+}
+
+.duotone::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(33, 30, 68, 0.7) 0%, rgba(229, 168, 16, 0.5) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* ======================================
+   Interactive Hover Effects
+   ====================================== */
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(33, 30, 68, 0.2);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(229, 168, 16, 0.5);
+}
+
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Button Shine Effect */
+.button-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.button-shine:hover::after {
+  transform: translateX(100%);
+}
+
+/* ======================================
+   Card Styles
+   ====================================== */
+
+.card-premium {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium:hover {
+  box-shadow: 0 25px 50px -12px rgba(33, 30, 68, 0.25);
+  transform: translateY(-4px);
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #211e44, #e5a810);
+  border-radius: 1rem 1rem 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-premium:hover::before {
+  opacity: 1;
+}
+
+/* ======================================
+   Section Backgrounds
+   ====================================== */
+
+.section-pattern {
+  position: relative;
+}
+
+.section-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(33, 30, 68, 0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events: none;
 }

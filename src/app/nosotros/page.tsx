@@ -1,0 +1,401 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import {
+    Target,
+    Eye,
+    ArrowRight,
+    Calendar,
+    MapPin,
+    Users,
+    Building2,
+    Award,
+    Shield,
+    Heart,
+    Scale,
+    HandshakeIcon,
+    Sparkles,
+    CheckCircle2,
+    Briefcase
+} from "lucide-react";
+
+// ============================================
+// DATOS DE LA LÍNEA TEMPORAL
+// ============================================
+const timelineEvents = [
+    {
+        date: "29 de septiembre de 2023",
+        title: "Nacimiento Oficial",
+        description: "CRECE FINANCE recibe oficialmente sus credenciales de funcionamiento, marcando el nacimiento formal de la institución como entidad financiera.",
+        icon: Award,
+        highlight: true,
+    },
+    {
+        date: "15 de diciembre de 2023",
+        title: "Primera Agencia - San Miguel",
+        description: "Se inaugura nuestra primera agencia en la ciudad de San Miguel, abriendo oficialmente las puertas al público con un equipo inicial de 10 colaboradores.",
+        icon: Building2,
+        location: "San Miguel",
+    },
+    {
+        date: "13 de abril de 2024",
+        title: "Agencia La Unión",
+        description: "Como resultado del crecimiento sostenido y la confianza de nuestros socios, inauguramos nuestra segunda agencia en La Unión.",
+        icon: MapPin,
+        location: "La Unión",
+    },
+    {
+        date: "15 de febrero de 2025",
+        title: "Agencia Santa Rosa de Lima",
+        description: "Continuamos nuestra expansión con la inauguración de la agencia de Santa Rosa de Lima, reafirmando nuestro compromiso con la región oriental.",
+        icon: MapPin,
+        location: "Santa Rosa de Lima",
+    },
+];
+
+// ============================================
+// VALORES INSTITUCIONALES
+// ============================================
+const valores = [
+    {
+        icon: Shield,
+        title: "Integridad",
+        description: "Actuamos con rectitud y coherencia, incluso en ausencia de supervisión. La integridad nos impulsa a hacer lo correcto en todo momento, guiados por principios éticos.",
+    },
+    {
+        icon: Scale,
+        title: "Honradez",
+        description: "Actuamos con rectitud, transparencia y respeto hacia los recursos, las personas y la confianza que se nos deposita.",
+    },
+    {
+        icon: Heart,
+        title: "Honestidad",
+        description: "Promovemos una conducta basada en la verdad, la coherencia y el respeto por los principios éticos. Ser honestos significa actuar con sinceridad en todo momento.",
+    },
+    {
+        icon: Eye,
+        title: "Transparencia",
+        description: "Promovemos una comunicación clara, accesible y oportuna, asegurando que nuestros procesos y decisiones sean comprensibles.",
+    },
+    {
+        icon: Briefcase,
+        title: "Responsabilidad",
+        description: "Asumimos con compromiso y seriedad las obligaciones que nos corresponden, considerando el impacto de nuestras decisiones en los socios y la comunidad.",
+    },
+    {
+        icon: HandshakeIcon,
+        title: "Confianza",
+        description: "Construimos relaciones basadas en la credibilidad, la coherencia y el cumplimiento de nuestros compromisos.",
+    },
+];
+
+// ============================================
+// ESTADÍSTICAS
+// ============================================
+const stats = [
+    { number: "200+", label: "Años de experiencia combinada" },
+    { number: "24", label: "Socios fundadores" },
+    { number: "30+", label: "Familias generando empleo" },
+    { number: "3", label: "Agencias en operación" },
+];
+
+export default function NosotrosPage() {
+    return (
+        <>
+            {/* ============================================
+          HERO SECTION
+          ============================================ */}
+            <section className="relative pt-32 pb-20 overflow-hidden">
+                {/* Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
+                    {/* Decorative lines */}
+                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="goldLineNosotros" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#e5a810" stopOpacity="0" />
+                                <stop offset="50%" stopColor="#e5a810" stopOpacity="0.3" />
+                                <stop offset="100%" stopColor="#e5a810" stopOpacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <line x1="0" y1="40%" x2="100%" y2="55%" stroke="url(#goldLineNosotros)" strokeWidth="1" />
+                        <line x1="0" y1="60%" x2="100%" y2="75%" stroke="url(#goldLineNosotros)" strokeWidth="2" />
+                    </svg>
+                    <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-primary-gold/10 blur-3xl" />
+                </div>
+
+                <div className="container relative mx-auto px-6 z-10">
+                    <div className="max-w-3xl">
+                        <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30">
+                            <Users className="h-4 w-4" />
+                            Sobre Nosotros
+                        </span>
+                        <h1 className="mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
+                            Conoce <span className="text-primary-gold">CRECE FINANCE</span>
+                        </h1>
+                        <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
+                            Una sociedad cooperativa sólida y confiable, comprometida con el desarrollo
+                            financiero de nuestros socios y clientes en la región oriental de El Salvador.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Wave */}
+                <div className="absolute bottom-0 left-0 right-0">
+                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" className="w-full">
+                        <path d="M0 100L48 94C96 88 192 76 288 68C384 60 480 56 576 58C672 60 768 68 864 72C960 76 1056 76 1152 70C1248 64 1344 52 1392 46L1440 40V100H0Z" fill="white" />
+                    </svg>
+                </div>
+            </section>
+
+            {/* ============================================
+          NUESTRA HISTORIA
+          ============================================ */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <span className="inline-block mb-4 rounded-full bg-primary-blue/10 px-4 py-2 text-sm font-semibold text-primary-blue">
+                            Nuestra Historia
+                        </span>
+                        <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl lg:text-5xl mb-6">
+                            Una visión que se convirtió en realidad
+                        </h2>
+                        <p className="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed">
+                            CRECE FINANCE nace de la visión de cinco profesionales que, tras una amplia trayectoria
+                            trabajando, dirigiendo y fortaleciendo diversas entidades financieras, identificaron
+                            la necesidad de crear una institución sólida, cercana y confiable.
+                        </p>
+                    </div>
+
+                    {/* Historia detallada */}
+                    <div className="max-w-4xl mx-auto mb-20">
+                        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-lg">
+                            <div className="prose prose-lg max-w-none text-gray-600">
+                                <p className="lead text-xl leading-relaxed mb-6">
+                                    <strong className="text-primary-blue">Crece Finance, Sociedad Cooperativa de Responsabilidad Limitada de Capital Variable</strong>,
+                                    nace de la visión de cinco profesionales orientados a brindar soluciones financieras accesibles,
+                                    oportunas y transparentes, especialmente para quienes más lo requieren.
+                                </p>
+                                <p className="mb-6">
+                                    Conscientes de que una institución fuerte se construye con personas y liderazgo, desde sus
+                                    primeras etapas se incorporaron profesionales con amplia experiencia en el sector financiero.
+                                    Esta integración permitió conformar un <strong className="text-primary-blue">equipo multidisciplinario
+                                        con una trayectoria combinada superior a los 200 años de experiencia</strong> en el sistema
+                                    financiero salvadoreño.
+                                </p>
+                                <p className="mb-6">
+                                    La institución cuenta con <strong className="text-primary-gold">24 accionistas fundadores e inversionistas</strong>,
+                                    quienes asumieron el compromiso de aportar capital, experiencia y conocimiento, así como la
+                                    responsabilidad ética de resguardar la reputación, la transparencia y la confianza de la institución.
+                                </p>
+                                <p>
+                                    Actualmente, <strong className="text-primary-blue">CRECE FINANCE genera empleo directo para más de
+                                        treinta (30) familias</strong>, aportando al desarrollo económico local y reafirmando su misión
+                                    de generar oportunidades e impulsar el crecimiento económico de la región oriental del país.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Timeline */}
+                    <div className="max-w-4xl mx-auto">
+                        <h3 className="text-center font-heading text-2xl font-bold text-primary-blue mb-12">
+                            Línea del Tiempo
+                        </h3>
+
+                        <div className="relative">
+                            {/* Línea central */}
+                            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-gold via-primary-blue to-primary-gold transform -translate-x-1/2 hidden md:block" />
+
+                            {timelineEvents.map((event, index) => (
+                                <div
+                                    key={event.date}
+                                    className={`relative flex items-center mb-12 last:mb-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                                        }`}
+                                >
+                                    {/* Content */}
+                                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                                        <div className={`bg-white rounded-2xl p-6 shadow-lg border ${event.highlight ? "border-primary-gold shadow-primary-gold/20" : "border-gray-100"
+                                            } hover:shadow-xl transition-shadow`}>
+                                            <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
+                                                <Calendar className="h-4 w-4 text-primary-gold" />
+                                                <span className="text-sm font-semibold text-primary-gold">{event.date}</span>
+                                            </div>
+                                            <h4 className="font-heading text-xl font-bold text-primary-blue mb-2">
+                                                {event.title}
+                                            </h4>
+                                            <p className="text-gray-600">{event.description}</p>
+                                            {event.location && (
+                                                <div className={`flex items-center gap-2 mt-3 text-sm text-gray-500 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
+                                                    <MapPin className="h-4 w-4" />
+                                                    {event.location}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Icon (center) */}
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center justify-center w-14 h-14 rounded-full bg-white border-4 border-primary-gold shadow-lg z-10">
+                                        <event.icon className="h-6 w-6 text-primary-blue" />
+                                    </div>
+
+                                    {/* Spacer */}
+                                    <div className="hidden md:block w-1/2" />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================
+          ESTADÍSTICAS
+          ============================================ */}
+            <section className="py-16 bg-gradient-to-r from-primary-blue to-primary-blue-600">
+                <div className="container mx-auto px-6">
+                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                        {stats.map((stat) => (
+                            <div key={stat.label} className="text-center">
+                                <p className="font-heading text-5xl font-bold text-primary-gold mb-2">
+                                    {stat.number}
+                                </p>
+                                <p className="text-white/80">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================
+          MISIÓN Y VISIÓN
+          ============================================ */}
+            <section className="py-20 bg-gray-50">
+                <div className="container mx-auto px-6">
+                    <div className="grid gap-8 lg:grid-cols-2">
+                        {/* Misión */}
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-blue to-primary-blue-600 p-10 text-white hover:shadow-2xl transition-shadow">
+                            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary-gold/20 blur-2xl transition-all duration-500 group-hover:scale-150" />
+                            <div className="relative">
+                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-gold/20">
+                                    <Target className="h-8 w-8 text-primary-gold" />
+                                </div>
+                                <h2 className="mb-4 font-heading text-3xl font-bold">Nuestra Misión</h2>
+                                <p className="text-lg text-white/90 leading-relaxed">
+                                    &ldquo;Somos una sociedad cooperativa sólida y confiable que brinda
+                                    servicios financieros oportunos y accesibles para nuestros socios
+                                    y clientes.&rdquo;
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Visión */}
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-gold to-primary-gold-500 p-10 hover:shadow-2xl transition-shadow">
+                            <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-primary-blue/20 blur-2xl transition-all duration-500 group-hover:scale-150" />
+                            <div className="relative">
+                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-blue/20">
+                                    <Eye className="h-8 w-8 text-primary-blue" />
+                                </div>
+                                <h2 className="mb-4 font-heading text-3xl font-bold text-primary-blue">
+                                    Nuestra Visión
+                                </h2>
+                                <p className="text-lg text-primary-blue/90 leading-relaxed">
+                                    &ldquo;Ser una entidad líder en servicios financieros, comprometida
+                                    con el crecimiento y desarrollo de nuestros colaboradores, socios
+                                    y clientes.&rdquo;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================
+          VALORES INSTITUCIONALES
+          ============================================ */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <span className="inline-block mb-4 rounded-full bg-primary-gold/10 px-4 py-2 text-sm font-semibold text-primary-gold">
+                            Lo que nos define
+                        </span>
+                        <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl mb-4">
+                            Nuestros Valores Institucionales
+                        </h2>
+                        <p className="mx-auto max-w-2xl text-gray-600">
+                            En CRECE FINANCE nos guiamos por principios fundamentales que rigen nuestra
+                            forma de operar y relacionarnos con nuestros clientes y colaboradores.
+                        </p>
+                    </div>
+
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        {valores.map((valor, index) => (
+                            <div
+                                key={valor.title}
+                                className="group relative overflow-hidden rounded-2xl bg-white p-8 border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+                            >
+                                {/* Hover gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue to-primary-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                                <div className="relative z-10">
+                                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary-gold/10 text-primary-gold transition-colors group-hover:bg-white/20 group-hover:text-white">
+                                        <valor.icon className="h-7 w-7" />
+                                    </div>
+                                    <h3 className="mb-3 font-heading text-xl font-bold text-primary-blue transition-colors group-hover:text-white">
+                                        {valor.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-sm leading-relaxed transition-colors group-hover:text-white/90">
+                                        {valor.description}
+                                    </p>
+                                </div>
+
+                                {/* Number indicator */}
+                                <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-primary-blue/5 flex items-center justify-center text-sm font-bold text-primary-blue/30 group-hover:bg-white/10 group-hover:text-white/50 transition-colors">
+                                    {index + 1}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================
+          CTA FINAL
+          ============================================ */}
+            <section className="relative py-20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-gold/10 rounded-full blur-3xl" />
+                </div>
+
+                <div className="container relative mx-auto px-6 text-center z-10">
+                    <Sparkles className="h-12 w-12 text-primary-gold mx-auto mb-6" />
+                    <h2 className="mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+                        ¿Listo para ser parte de CRECE FINANCE?
+                    </h2>
+                    <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
+                        Únete a nuestra familia de socios y descubre todas las ventajas
+                        de pertenecer a una cooperativa sólida y confiable.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link href="/contacto">
+                            <Button
+                                variant="primary"
+                                size="lg"
+                                rightIcon={<ArrowRight className="h-5 w-5" />}
+                            >
+                                Contáctanos Ahora
+                            </Button>
+                        </Link>
+                        <Link href="/servicios">
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-white/50 text-white hover:bg-white hover:text-primary-blue"
+                            >
+                                Ver Servicios
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+}
