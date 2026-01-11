@@ -25,22 +25,47 @@ const roboto = Roboto({
 const FAVICON_URL = "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/logo2_qcbu5g.png";
 
 export const metadata: Metadata = {
-  title: "CRECE FINANCE | Tu Aliado Financiero",
+  metadataBase: new URL('https://crecefinance.com.sv'),
+  title: {
+    default: "CRECE FINANCE | Tu Aliado Financiero en El Salvador",
+    template: "%s | CRECE FINANCE"
+  },
   description:
-    "CRECE FINANCE - Soluciones financieras en El Salvador. Ahorro, inversiones, microcréditos y préstamos personales adaptados a tus necesidades.",
+    "CRECE FINANCE - Cooperativa financiera líder en El Salvador. Ahorro, inversiones, microcréditos y préstamos personales con las mejores tasas. Más de 200 años de experiencia combinada.",
   keywords: [
-    "finanzas",
-    "ahorro",
+    "CRECE FINANCE",
+    "cooperativa financiera",
+    "ahorro El Salvador",
     "préstamos",
     "microcréditos",
     "inversiones",
     "El Salvador",
     "San Miguel",
-    "CRECE FINANCE",
-    "cooperativa",
+    "La Unión",
+    "Santa Rosa de Lima",
+    "servicios financieros",
+    "crédito",
+    "remesas",
   ],
-  authors: [{ name: "CRECE FINANCE" }],
-
+  authors: [{ name: "CRECE FINANCE", url: "https://crecefinance.com.sv" }],
+  creator: "CRECE FINANCE",
+  publisher: "CRECE FINANCE",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   // Favicon configuration
   icons: {
     icon: [
@@ -50,30 +75,35 @@ export const metadata: Metadata = {
       { url: FAVICON_URL, sizes: "180x180", type: "image/png" },
     ],
   },
-
+  manifest: '/manifest.json',
   openGraph: {
-    title: "CRECE FINANCE | Tu Aliado Financiero",
+    title: "CRECE FINANCE | Tu Aliado Financiero en El Salvador",
     description:
-      "Soluciones financieras en El Salvador. Ahorro, inversiones, microcréditos y préstamos personales.",
+      "Cooperativa financiera líder en El Salvador. Ahorro, inversiones, microcréditos y préstamos personales con las mejores tasas.",
     type: "website",
     locale: "es_SV",
+    url: "https://crecefinance.com.sv",
     siteName: "CRECE FINANCE",
     images: [
       {
         url: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/LogoHorizontal_iohiqa.png",
         width: 1200,
         height: 630,
-        alt: "CRECE FINANCE - Tu Aliado Financiero",
+        alt: "CRECE FINANCE - Tu Aliado Financiero en El Salvador",
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "CRECE FINANCE | Tu Aliado Financiero",
-    description: "Soluciones financieras en El Salvador.",
+    description: "Cooperativa financiera líder en El Salvador. Ahorro, inversiones y préstamos.",
     images: ["https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/LogoHorizontal_iohiqa.png"],
+    creator: "@crecefinance",
   },
+  alternates: {
+    canonical: "https://crecefinance.com.sv",
+  },
+  category: 'finance',
 };
 
 export default function RootLayout({

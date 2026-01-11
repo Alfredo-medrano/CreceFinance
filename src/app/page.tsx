@@ -83,16 +83,16 @@ export default function Home() {
                 <div className="flex h-full flex-col items-center justify-center text-center text-white">
                   <TrendingUp className="mb-6 h-16 w-16" />
                   <h3 className="mb-4 font-heading text-4xl font-bold md:text-5xl">
-                    +10,000
+                    200+
                   </h3>
-                  <p className="text-xl text-white/90">Clientes satisfechos</p>
+                  <p className="text-xl text-white/90">Años de experiencia combinada</p>
                   <div className="mt-8 grid w-full grid-cols-2 gap-4">
                     <div className="rounded-xl bg-white/10 p-4">
-                      <p className="font-heading text-2xl font-bold">15+</p>
-                      <p className="text-sm text-white/80">Años de experiencia</p>
+                      <p className="font-heading text-2xl font-bold">24</p>
+                      <p className="text-sm text-white/80">Socios Fundadores</p>
                     </div>
                     <div className="rounded-xl bg-white/10 p-4">
-                      <p className="font-heading text-2xl font-bold">5</p>
+                      <p className="font-heading text-2xl font-bold">3</p>
                       <p className="text-sm text-white/80">Agencias</p>
                     </div>
                   </div>

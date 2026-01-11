@@ -1,4 +1,4 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import {
@@ -7,7 +7,6 @@ import {
     ArrowRight,
     Calendar,
     MapPin,
-    Users,
     Building2,
     Award,
     Shield,
@@ -15,9 +14,21 @@ import {
     Scale,
     HandshakeIcon,
     Sparkles,
-    CheckCircle2,
     Briefcase
 } from "lucide-react";
+import { HeroCarousel } from "@/components/ui/HeroCarousel";
+
+export const metadata: Metadata = {
+    title: "Nosotros | CRECE FINANCE - Nuestra Historia y Valores",
+    description: "Conoce la historia de CRECE FINANCE, una cooperativa sólida con más de 200 años de experiencia combinada. Descubre nuestra misión, visión y valores institucionales.",
+    keywords: ["CRECE FINANCE", "sobre nosotros", "historia", "cooperativa El Salvador", "valores institucionales", "misión visión", "San Miguel"],
+    openGraph: {
+        title: "Nosotros | CRECE FINANCE",
+        description: "Conoce nuestra historia, misión y valores. Más de 200 años de experiencia combinada al servicio de nuestros socios.",
+        type: "website",
+        locale: "es_SV",
+    },
+};
 
 // ============================================
 // DATOS DE LA LÍNEA TEMPORAL
@@ -25,29 +36,29 @@ import {
 const timelineEvents = [
     {
         date: "29 de septiembre de 2023",
-        title: "Nacimiento Oficial",
-        description: "CRECE FINANCE recibe oficialmente sus credenciales de funcionamiento, marcando el nacimiento formal de la institución como entidad financiera.",
+        title: "El inicio",
+        description: "Crece Finance recibe oficialmente sus credenciales de funcionamiento, marcando el nacimiento formal como institución financiera.",
         icon: Award,
         highlight: true,
     },
     {
         date: "15 de diciembre de 2023",
-        title: "Primera Agencia - San Miguel",
-        description: "Se inaugura nuestra primera agencia en la ciudad de San Miguel, abriendo oficialmente las puertas al público con un equipo inicial de 10 colaboradores.",
+        title: "Primera Agencia",
+        description: "Inauguración de la primera agencia en San Miguel y apertura oficial al público, iniciando operaciones con un equipo de 10 colaboradores.",
         icon: Building2,
         location: "San Miguel",
     },
     {
         date: "13 de abril de 2024",
-        title: "Agencia La Unión",
-        description: "Como resultado del crecimiento sostenido y la confianza de nuestros socios, inauguramos nuestra segunda agencia en La Unión.",
+        title: "Crecimiento y confianza",
+        description: "Apertura de la agencia en La Unión, fortaleciendo la presencia institucional en la región oriental y ampliando el acceso a servicios financieros.",
         icon: MapPin,
         location: "La Unión",
     },
     {
         date: "15 de febrero de 2025",
-        title: "Agencia Santa Rosa de Lima",
-        description: "Continuamos nuestra expansión con la inauguración de la agencia de Santa Rosa de Lima, reafirmando nuestro compromiso con la región oriental.",
+        title: "Expansión regional",
+        description: "Inauguración de la agencia en Santa Rosa de Lima, consolidando el crecimiento y reflejando la aceptación y respaldo de Crece Finance en nuevas localidades.",
         icon: MapPin,
         location: "Santa Rosa de Lima",
     },
@@ -60,32 +71,32 @@ const valores = [
     {
         icon: Shield,
         title: "Integridad",
-        description: "Actuamos con rectitud y coherencia, incluso en ausencia de supervisión. La integridad nos impulsa a hacer lo correcto en todo momento, guiados por principios éticos.",
+        description: "En CRECE FINANCE actuamos con rectitud y coherencia, incluso en ausencia de supervisión o reconocimiento. La integridad nos impulsa a hacer lo correcto en todo momento, guiados por principios éticos y por el compromiso con nuestra misión institucional.",
     },
     {
         icon: Scale,
         title: "Honradez",
-        description: "Actuamos con rectitud, transparencia y respeto hacia los recursos, las personas y la confianza que se nos deposita.",
+        description: "Actuamos con rectitud, transparencia y respeto hacia los recursos, las personas y la confianza que se nos deposita. La honradez guía nuestras decisiones y nos impulsa a cumplir nuestras responsabilidades de forma ética.",
     },
     {
         icon: Heart,
         title: "Honestidad",
-        description: "Promovemos una conducta basada en la verdad, la coherencia y el respeto por los principios éticos. Ser honestos significa actuar con sinceridad en todo momento.",
+        description: "Promovemos una conducta basada en la verdad, la coherencia y el respeto por los principios éticos. Ser honestos significa actuar con sinceridad en todo momento, asumir con responsabilidad nuestras acciones y comunicarnos con transparencia.",
     },
     {
         icon: Eye,
         title: "Transparencia",
-        description: "Promovemos una comunicación clara, accesible y oportuna, asegurando que nuestros procesos y decisiones sean comprensibles.",
+        description: "Practicamos la transparencia como un principio esencial. Promovemos una comunicación clara, accesible y oportuna, asegurando que nuestros procesos, decisiones y resultados sean comprensibles y estén disponibles.",
     },
     {
         icon: Briefcase,
         title: "Responsabilidad",
-        description: "Asumimos con compromiso y seriedad las obligaciones que nos corresponden, considerando el impacto de nuestras decisiones en los socios y la comunidad.",
+        description: "Asumimos con compromiso y seriedad las obligaciones que nos corresponden. Actuar con responsabilidad significa cumplir con nuestros deberes de forma oportuna, consciente y ética, considerando el impacto de nuestras decisiones.",
     },
     {
         icon: HandshakeIcon,
         title: "Confianza",
-        description: "Construimos relaciones basadas en la credibilidad, la coherencia y el cumplimiento de nuestros compromisos.",
+        description: "Construimos relaciones basadas en la credibilidad, la coherencia y el cumplimiento de nuestros compromisos. La confianza es el resultado de actuar con ética, transparencia y responsabilidad, generando seguridad en nuestros socios.",
     },
 ];
 
@@ -105,47 +116,31 @@ export default function NosotrosPage() {
             {/* ============================================
           HERO SECTION
           ============================================ */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
-                {/* Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
-                    {/* Decorative lines */}
-                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                        <defs>
-                            <linearGradient id="goldLineNosotros" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#e5a810" stopOpacity="0" />
-                                <stop offset="50%" stopColor="#e5a810" stopOpacity="0.3" />
-                                <stop offset="100%" stopColor="#e5a810" stopOpacity="0" />
-                            </linearGradient>
-                        </defs>
-                        <line x1="0" y1="40%" x2="100%" y2="55%" stroke="url(#goldLineNosotros)" strokeWidth="1" />
-                        <line x1="0" y1="60%" x2="100%" y2="75%" stroke="url(#goldLineNosotros)" strokeWidth="2" />
-                    </svg>
-                    <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-primary-gold/10 blur-3xl" />
-                </div>
-
-                <div className="container relative mx-auto px-6 z-10">
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30">
-                            <Users className="h-4 w-4" />
-                            Sobre Nosotros
-                        </span>
-                        <h1 className="mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
-                            Conoce <span className="text-primary-gold">CRECE FINANCE</span>
-                        </h1>
-                        <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
-                            Una sociedad cooperativa sólida y confiable, comprometida con el desarrollo
-                            financiero de nuestros socios y clientes en la región oriental de El Salvador.
-                        </p>
-                    </div>
-                </div>
-
-                {/* Wave */}
-                <div className="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" className="w-full">
-                        <path d="M0 100L48 94C96 88 192 76 288 68C384 60 480 56 576 58C672 60 768 68 864 72C960 76 1056 76 1152 70C1248 64 1344 52 1392 46L1440 40V100H0Z" fill="white" />
-                    </svg>
-                </div>
-            </section>
+            {/* ============================================
+          HERO SECTION (Dynamic)
+          ============================================ */}
+            <HeroCarousel
+                slides={[
+                    {
+                        id: 1,
+                        title: "Conoce CRECE FINANCE",
+                        subtitle: "Sobre Nosotros",
+                        description: "Una sociedad cooperativa sólida y confiable, comprometida con el desarrollo financiero de nuestros socios y clientes.",
+                        imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop", // Meeting/Team
+                        ctaText: "Contáctanos",
+                        ctaLink: "/contacto"
+                    },
+                    {
+                        id: 2,
+                        title: "Valores que Inspiran",
+                        subtitle: "Nuestra Esencia",
+                        description: "Integridad, transparencia y responsabilidad son los pilares que sostienen cada una de nuestras acciones.",
+                        imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000&auto=format&fit=crop", // Handshake/People
+                        ctaText: "Ver Valores",
+                        ctaLink: "#valores"
+                    }
+                ]}
+            />
 
             {/* ============================================
           NUESTRA HISTORIA
@@ -171,26 +166,38 @@ export default function NosotrosPage() {
                         <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-lg">
                             <div className="prose prose-lg max-w-none text-gray-600">
                                 <p className="lead text-xl leading-relaxed mb-6">
-                                    <strong className="text-primary-blue">Crece Finance, Sociedad Cooperativa de Responsabilidad Limitada de Capital Variable</strong>,
-                                    nace de la visión de cinco profesionales orientados a brindar soluciones financieras accesibles,
-                                    oportunas y transparentes, especialmente para quienes más lo requieren.
+                                    <strong className="text-primary-blue">Crece Finance, Sociedad Cooperativa de Responsabilidad Limitada de Capital Variable</strong> (abreviada como Crece Finance, Soc. Coop. de R. L. de C. V.), nace de la visión de cinco
+                                    profesionales que, tras una amplia trayectoria trabajando, dirigiendo y fortaleciendo diversas
+                                    entidades financieras, identificaron la necesidad de crear una institución sólida, cercana y
+                                    confiable, orientada a brindar soluciones financieras accesibles, oportunas y transparentes,
+                                    especialmente para quienes más lo requieren.
                                 </p>
                                 <p className="mb-6">
                                     Conscientes de que una institución fuerte se construye con personas y liderazgo, desde sus
-                                    primeras etapas se incorporaron profesionales con amplia experiencia en el sector financiero.
-                                    Esta integración permitió conformar un <strong className="text-primary-blue">equipo multidisciplinario
-                                        con una trayectoria combinada superior a los 200 años de experiencia</strong> en el sistema
-                                    financiero salvadoreño.
+                                    primeras etapas se incorporaron profesionales con amplia experiencia en el sector financiero,
+                                    provenientes de distintas entidades del país. Esta integración permitió conformar un <strong className="text-primary-blue">equipo
+                                        multidisciplinario con una trayectoria combinada superior a los 200 años de experiencia</strong> en
+                                    el sistema financiero salvadoreño, caracterizado por su honestidad, integridad y
+                                    profesionalismo, valores que hoy distinguen a Crece Finance.
                                 </p>
                                 <p className="mb-6">
-                                    La institución cuenta con <strong className="text-primary-gold">24 accionistas fundadores e inversionistas</strong>,
+                                    Como resultado de este proceso, la institución cuenta con <strong className="text-primary-gold">24 accionistas fundadores e inversionistas</strong>,
                                     quienes asumieron el compromiso de aportar capital, experiencia y conocimiento, así como la
-                                    responsabilidad ética de resguardar la reputación, la transparencia y la confianza de la institución.
+                                    responsabilidad ética de resguardar la reputación, la transparencia y la confianza de la
+                                    institución, sentando las bases de una organización con visión de largo plazo, enfocada en la
+                                    sostenibilidad y el crecimiento responsable.
                                 </p>
                                 <p>
-                                    Actualmente, <strong className="text-primary-blue">CRECE FINANCE genera empleo directo para más de
+                                    Actualmente, <strong className="text-primary-blue">Crece Finance genera empleo directo para más de
                                         treinta (30) familias</strong>, aportando al desarrollo económico local y reafirmando su misión
-                                    de generar oportunidades e impulsar el crecimiento económico de la región oriental del país.
+                                    de generar oportunidades, impulsar el crecimiento económico y mejorar la calidad de vida de sus colaboradores, socios
+                                    y usuarios.
+                                </p>
+                                <p className="mt-6 border-l-4 border-primary-gold pl-6 italic text-gray-500">
+                                    "Hoy, Crece Finance continúa avanzando con paso firme, consolidándose como una
+                                    institución financiera confiable, comprometida con la transparencia, la responsabilidad y el
+                                    desarrollo sostenible, bajo la convicción de que el crecimiento financiero debe ir siempre de
+                                    la mano con el bienestar de las personas y las comunidades."
                                 </p>
                             </div>
                         </div>

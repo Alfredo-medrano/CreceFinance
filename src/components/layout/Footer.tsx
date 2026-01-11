@@ -30,10 +30,10 @@ const quickLinks = [
 
 const services = [
     { label: "Ahorro Plazo Fijo", href: "/ahorros/plazo-fijo" },
-    { label: "Ahorro Navideño", href: "/ahorros/navideno" },
-    { label: "Microcréditos", href: "/prestamos/microcreditos" },
-    { label: "Préstamo Personal", href: "/prestamos/personal" },
     { label: "Inversiones", href: "/inversiones" },
+    { label: "Microcréditos", href: "/prestamos/microcreditos" },
+    { label: "Créditos de Comercio", href: "/prestamos/comercio" },
+    { label: "Servicios Adicionales", href: "/servicios" },
 ];
 
 export function Footer() {

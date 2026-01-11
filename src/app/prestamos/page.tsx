@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import {
@@ -13,13 +14,26 @@ import {
     Home,
     Users
 } from "lucide-react";
+import { HeroCarousel } from "@/components/ui/HeroCarousel";
+
+export const metadata: Metadata = {
+    title: "Préstamos | CRECE FINANCE - Microcréditos, Consumo y Vivienda",
+    description: "Soluciones de crédito adaptadas a tus necesidades: microcréditos, créditos de comercio, consumo, prendarios y vivienda. Aprobación rápida y tasas competitivas.",
+    keywords: ["préstamos El Salvador", "microcréditos", "crédito de consumo", "préstamo vivienda", "crédito comercio", "CRECE FINANCE"],
+    openGraph: {
+        title: "Productos de Crédito | CRECE FINANCE",
+        description: "Financiamiento para emprendedores, comerciantes y familias. Aprobación rápida y tasas competitivas.",
+        type: "website",
+        locale: "es_SV",
+    },
+};
 
 const productosCredito = [
     {
         id: "microcreditos",
         icon: Briefcase,
         title: "Microcréditos",
-        description: "Financiamiento accesible y rápido para pequeños emprendedores que buscan impulsar su negocio.",
+        description: "Diseñados para pequeños emprendedores que necesitan financiamiento accesible y rápido.",
         href: "/prestamos/microcreditos",
     },
     {
@@ -47,7 +61,7 @@ const productosCredito = [
         id: "vivienda",
         icon: Home,
         title: "Créditos para Vivienda",
-        description: "Para remodelación, adquisición y construcción de tu hogar.",
+        description: "Para remodelación, adquisición y construcción de viviendas.",
         href: "/prestamos/vivienda",
         destacado: true,
     },
@@ -64,44 +78,29 @@ export default function PrestamosPage() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-32 pb-24 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
-                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                        <defs>
-                            <linearGradient id="goldLinePrestamos" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#e5a810" stopOpacity="0" />
-                                <stop offset="50%" stopColor="#e5a810" stopOpacity="0.3" />
-                                <stop offset="100%" stopColor="#e5a810" stopOpacity="0" />
-                            </linearGradient>
-                        </defs>
-                        <line x1="0" y1="40%" x2="100%" y2="55%" stroke="url(#goldLinePrestamos)" strokeWidth="1" />
-                        <line x1="0" y1="60%" x2="100%" y2="75%" stroke="url(#goldLinePrestamos)" strokeWidth="2" />
-                    </svg>
-                    <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-primary-gold/10 blur-3xl" />
-                </div>
-
-                <div className="container relative mx-auto px-6 z-10">
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30">
-                            <Banknote className="h-4 w-4" />
-                            Créditos y Préstamos
-                        </span>
-                        <h1 className="mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
-                            Financiamiento para <span className="text-primary-gold">crecer</span>
-                        </h1>
-                        <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
-                            Brindamos financiamiento para impulsar el crecimiento económico de
-                            nuestros clientes con opciones adaptadas a cada necesidad.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" className="w-full">
-                        <path d="M0 100L48 94C96 88 192 76 288 68C384 60 480 56 576 58C672 60 768 68 864 72C960 76 1056 76 1152 70C1248 64 1344 52 1392 46L1440 40V100H0Z" fill="white" />
-                    </svg>
-                </div>
-            </section>
+            {/* Hero (Dynamic) */}
+            <HeroCarousel
+                slides={[
+                    {
+                        id: 1,
+                        title: "Financiamiento para Crecer",
+                        subtitle: "Créditos",
+                        description: "Brindamos financiamiento para impulsar el crecimiento económico de nuestros clientes con opciones adaptadas a cada necesidad.",
+                        imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop", // New keys/House
+                        ctaText: "Solicitar Crédito",
+                        ctaLink: "/contacto"
+                    },
+                    {
+                        id: 2,
+                        title: "Impulsa tu Negocio",
+                        subtitle: "Emprendimiento",
+                        description: "Apoyamos a pequeños y grandes empresarios con capital de trabajo para llevar sus ideas al siguiente nivel.",
+                        imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1000&auto=format&fit=crop", // Shop/Business
+                        ctaText: "Ver Créditos",
+                        ctaLink: "#productos"
+                    }
+                ]}
+            />
 
             {/* Beneficios */}
             <section className="py-12 bg-white border-b border-gray-100">

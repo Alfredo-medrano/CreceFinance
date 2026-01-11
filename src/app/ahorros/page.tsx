@@ -1,7 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import {
-    PiggyBank,
     Gift,
     Baby,
     GraduationCap,
@@ -14,6 +14,19 @@ import {
     Clock,
     TrendingUp
 } from "lucide-react";
+import { HeroCarousel } from "@/components/ui/HeroCarousel";
+
+export const metadata: Metadata = {
+    title: "Ahorros | CRECE FINANCE - Cuentas de Ahorro con las Mejores Tasas",
+    description: "Descubre nuestras opciones de ahorro: Vista, Navideño, Infantil, Escolar y Plazo Fijo. Tasas competitivas y seguridad garantizada para tu dinero.",
+    keywords: ["ahorro El Salvador", "cuenta de ahorros", "plazo fijo", "ahorro navideño", "ahorro infantil", "tasas de interés", "CRECE FINANCE"],
+    openGraph: {
+        title: "Productos de Ahorro | CRECE FINANCE",
+        description: "Haz crecer tu dinero con nuestras diversas opciones de ahorro. Tasas competitivas y seguridad garantizada.",
+        type: "website",
+        locale: "es_SV",
+    },
+};
 
 // ============================================
 // PRODUCTOS DE AHORRO (RESUMEN)
@@ -30,28 +43,28 @@ const productosAhorro = [
         id: "navideno",
         icon: Gift,
         title: "Ahorro Navideño",
-        description: "Planifica tus fiestas de fin de año. Ahorra durante el año con disponibilidad desde diciembre.",
+        description: "Diseñado para fomentar el ahorro con disponibilidad a partir del 1 de diciembre de cada año.",
         href: "/ahorros/navideno",
     },
     {
         id: "infantil",
         icon: Baby,
         title: "Ahorro Infantil",
-        description: "Fomenta el hábito del ahorro en los más pequeños. Disponible en su mes de cumpleaños.",
+        description: "Pensado para fomentar el hábito del ahorro en los niños, disponible en el mes de su cumpleaños.",
         href: "/ahorros/infantil",
     },
     {
         id: "escolar",
         icon: GraduationCap,
         title: "Ahorro Escolar",
-        description: "Planifica los gastos educativos. Disponible en noviembre, diciembre y enero.",
+        description: "Enfocado en la planificación educativa, disponible en los meses de noviembre, diciembre y enero de cada año.",
         href: "/ahorros/escolar",
     },
     {
         id: "plazo-fijo",
         icon: Landmark,
-        title: "Depósito a Plazo Fijo",
-        description: "Maximiza tus rendimientos con las mejores tasas. Plazos desde 90 días.",
+        title: "Depósitos a Plazo Fijo",
+        description: "Permite obtener un mayor rendimiento con tasas de interés atractivas. Puede mantenerse por un plazo mínimo de 90 días o más, de acuerdo con tu preferencia.",
         href: "/ahorros/plazo-fijo",
         destacado: true,
     },
@@ -70,44 +83,31 @@ export default function AhorrosPage() {
             {/* ============================================
           HERO SECTION
           ============================================ */}
-            <section className="relative pt-32 pb-24 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
-                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                        <defs>
-                            <linearGradient id="goldLineAhorros" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#e5a810" stopOpacity="0" />
-                                <stop offset="50%" stopColor="#e5a810" stopOpacity="0.3" />
-                                <stop offset="100%" stopColor="#e5a810" stopOpacity="0" />
-                            </linearGradient>
-                        </defs>
-                        <line x1="0" y1="40%" x2="100%" y2="55%" stroke="url(#goldLineAhorros)" strokeWidth="1" />
-                        <line x1="0" y1="60%" x2="100%" y2="75%" stroke="url(#goldLineAhorros)" strokeWidth="2" />
-                    </svg>
-                    <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-primary-gold/10 blur-3xl" />
-                </div>
-
-                <div className="container relative mx-auto px-6 z-10">
-                    <div className="max-w-3xl">
-                        <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30">
-                            <PiggyBank className="h-4 w-4" />
-                            Productos de Ahorro
-                        </span>
-                        <h1 className="mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
-                            Haz crecer tu dinero con <span className="text-primary-gold">CRECE FINANCE</span>
-                        </h1>
-                        <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
-                            Diversas opciones de ahorro con tasas competitivas para asegurar
-                            el crecimiento financiero de tu familia.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" className="w-full">
-                        <path d="M0 100L48 94C96 88 192 76 288 68C384 60 480 56 576 58C672 60 768 68 864 72C960 76 1056 76 1152 70C1248 64 1344 52 1392 46L1440 40V100H0Z" fill="white" />
-                    </svg>
-                </div>
-            </section>
+            {/* ============================================
+          HERO SECTION (Dynamic)
+          ============================================ */}
+            <HeroCarousel
+                slides={[
+                    {
+                        id: 1,
+                        title: "Haz crecer tu dinero",
+                        subtitle: "Ahorros",
+                        description: "Diversas opciones de ahorro con tasas competitivas para asegurar el crecimiento financiero de tu familia.",
+                        imageUrl: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop", // Piggy bank/Savings
+                        ctaText: "Abrir Cuenta",
+                        ctaLink: "/contacto"
+                    },
+                    {
+                        id: 2,
+                        title: "Planifica tu Futuro",
+                        subtitle: "Seguridad Financiera",
+                        description: "Empieza hoy a construir el mañana que sueñas con nuestras soluciones de ahorro programado.",
+                        imageUrl: "https://images.unsplash.com/photo-1565514020176-dbf2277cc168?q=80&w=1000&auto=format&fit=crop", // Family/Future
+                        ctaText: "Ver Planes",
+                        ctaLink: "#productos"
+                    }
+                ]}
+            />
 
             {/* ============================================
           BENEFICIOS

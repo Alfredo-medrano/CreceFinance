@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/Button";
 import {
     Menu,
     X,
     ChevronDown,
-    Phone,
-    MapPin,
+    ChevronRight,
     PiggyBank,
     Gift,
     Coins,
@@ -19,17 +19,17 @@ import {
     Users,
     Briefcase,
     TrendingUp,
+    ShoppingBag,
+    Key,
+    Home,
 } from "lucide-react";
 
 // ============================================
 // 🎨 CONFIGURA TUS LOGOS AQUÍ
 // ============================================
 const LOGO_CONFIG = {
-    // Logo principal (horizontal) - para el header
     horizontal: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/Horizontal2_ebpdri.png",
-    // Logo blanco - para fondo oscuro cuando no hay scroll
     white: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/Horizontal2_ebpdri.png",
-    // Isotipo/Icono - para favicon y espacios pequeños
     icon: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/logo2_qcbu5g.png",
 };
 
@@ -67,233 +67,338 @@ const navItems: NavItem[] = [
         href: "/prestamos",
         children: [
             { label: "Microcréditos", href: "/prestamos/microcreditos", icon: <Briefcase className="h-4 w-4" /> },
-            { label: "Préstamo Personal", href: "/prestamos/personal", icon: <CreditCard className="h-4 w-4" /> },
-            { label: "Préstamo Grupal", href: "/prestamos/grupal", icon: <Users className="h-4 w-4" /> },
-            { label: "Crédito PYME", href: "/prestamos/pyme", icon: <Building className="h-4 w-4" /> },
+            { label: "Comercio", href: "/prestamos/comercio", icon: <ShoppingBag className="h-4 w-4" /> },
+            { label: "Consumo", href: "/prestamos/consumo", icon: <CreditCard className="h-4 w-4" /> },
+            { label: "Prendarios", href: "/prestamos/prendarios", icon: <Key className="h-4 w-4" /> },
+            { label: "Vivienda", href: "/prestamos/vivienda", icon: <Home className="h-4 w-4" /> },
         ],
     },
+    { label: "Servicios", href: "/servicios" },
     { label: "Agencias", href: "/agencias" },
     { label: "Eventos", href: "/eventos" },
     { label: "Contacto", href: "/contacto" },
 ];
 
-interface DropdownProps {
-    items: NavItem[];
-    isOpen: boolean;
-}
-
-function Dropdown({ items, isOpen }: DropdownProps) {
-    return (
-        <div
-            className={cn(
-                "absolute left-0 top-full mt-2 min-w-[240px] rounded-xl bg-white p-2 shadow-xl border border-gray-100 transition-all duration-300",
-                isOpen
-                    ? "visible translate-y-0 opacity-100"
-                    : "invisible -translate-y-2 opacity-0"
-            )}
-        >
-            {items.map((item) => (
-                <Link
-                    key={item.href}
-                    href={item.href}
-                    className="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-primary-blue/5 hover:text-primary-blue"
-                >
-                    {item.icon && (
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-gold/10 text-primary-gold">
-                            {item.icon}
-                        </span>
-                    )}
-                    <span className="font-medium">{item.label}</span>
-                </Link>
-            ))}
-        </div>
-    );
-}
-
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setIsScrolled(window.scrollY > 20);
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+        setExpandedMobileItem(null);
+    }, [pathname]);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isMobileMenuOpen]);
+
+    const isActive = (path: string) => {
+        if (path === "/") return pathname === "/";
+        return pathname.startsWith(path);
+    };
+
+    const toggleMobileSubmenu = (label: string) => {
+        setExpandedMobileItem(expandedMobileItem === label ? null : label);
+    };
+
     return (
-        <header
-            className={cn(
-                "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-                isScrolled
-                    ? "bg-white/95 shadow-lg backdrop-blur-md"
-                    : "bg-transparent"
-            )}
-        >
-            {/* Top Bar */}
-            <div
+        <>
+            <header
                 className={cn(
-                    "border-b transition-all duration-300",
+                    "fixed left-0 right-0 top-0 z-50 transition-all duration-500",
                     isScrolled
-                        ? "border-gray-100 bg-primary-blue"
-                        : "border-white/10 bg-primary-blue/80"
+                        ? "bg-white shadow-lg shadow-gray-200/50"
+                        : "bg-gradient-to-b from-black/30 to-transparent"
                 )}
             >
-                <div className="container mx-auto flex items-center justify-between px-6 py-2 text-sm">
-                    <div className="flex items-center gap-6 text-white/90">
-                        <a
-                            href="tel:26607373"
-                            className="flex items-center gap-2 transition-colors hover:text-primary-gold"
+                <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex h-16 sm:h-18 lg:h-20 items-center justify-between">
+                        {/* Logo */}
+                        <Link href="/" className="relative flex items-center shrink-0">
+                            <div className="relative h-10 w-32 sm:h-12 sm:w-36 lg:h-14 lg:w-44">
+                                <Image
+                                    src={isScrolled ? LOGO_CONFIG.horizontal : LOGO_CONFIG.white}
+                                    alt="CRECE FINANCE"
+                                    fill
+                                    className="object-contain object-left transition-opacity duration-300"
+                                    priority
+                                    unoptimized
+                                />
+                            </div>
+                        </Link>
+
+                        {/* Desktop Navigation - Hidden on mobile/tablet */}
+                        <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+                            {navItems.map((item) => {
+                                const active = isActive(item.href);
+                                return (
+                                    <div
+                                        key={item.href}
+                                        className="relative group"
+                                        onMouseEnter={() => item.children && setOpenDropdown(item.label)}
+                                        onMouseLeave={() => setOpenDropdown(null)}
+                                    >
+                                        <Link
+                                            href={item.href}
+                                            className={cn(
+                                                "relative flex items-center gap-1 px-3 xl:px-4 py-2 text-sm font-medium rounded-full transition-all duration-300",
+                                                isScrolled
+                                                    ? active
+                                                        ? "bg-primary-blue text-white shadow-md shadow-primary-blue/30"
+                                                        : "text-gray-700 hover:bg-gray-100"
+                                                    : active
+                                                        ? "bg-white/20 text-white backdrop-blur-sm"
+                                                        : "text-white/90 hover:text-white hover:bg-white/10"
+                                            )}
+                                        >
+                                            {item.label}
+                                            {item.children && (
+                                                <ChevronDown
+                                                    className={cn(
+                                                        "h-3.5 w-3.5 transition-transform duration-200",
+                                                        openDropdown === item.label && "rotate-180"
+                                                    )}
+                                                />
+                                            )}
+                                        </Link>
+
+                                        {/* Dropdown Menu */}
+                                        {item.children && (
+                                            <div
+                                                className={cn(
+                                                    "absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200",
+                                                    openDropdown === item.label
+                                                        ? "opacity-100 visible translate-y-0"
+                                                        : "opacity-0 invisible -translate-y-2"
+                                                )}
+                                            >
+                                                <div className="min-w-[280px] bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-2 overflow-hidden">
+                                                    {item.children.map((child) => {
+                                                        const childActive = pathname === child.href;
+                                                        return (
+                                                            <Link
+                                                                key={child.href}
+                                                                href={child.href}
+                                                                className={cn(
+                                                                    "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200",
+                                                                    childActive
+                                                                        ? "bg-primary-blue/10 text-primary-blue"
+                                                                        : "text-gray-600 hover:bg-gray-50"
+                                                                )}
+                                                            >
+                                                                {child.icon && (
+                                                                    <span className={cn(
+                                                                        "flex h-9 w-9 items-center justify-center rounded-xl transition-colors",
+                                                                        childActive
+                                                                            ? "bg-primary-blue text-white"
+                                                                            : "bg-gray-100 text-gray-500"
+                                                                    )}>
+                                                                        {React.cloneElement(child.icon as React.ReactElement<any>, { className: "h-4 w-4" })}
+                                                                    </span>
+                                                                )}
+                                                                <span className="font-medium">{child.label}</span>
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Mobile Menu Button */}
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className={cn(
+                                "lg:hidden relative z-50 p-2 rounded-xl transition-all duration-300",
+                                isMobileMenuOpen
+                                    ? "bg-gray-100 text-gray-700"
+                                    : isScrolled
+                                        ? "text-gray-700 hover:bg-gray-100"
+                                        : "text-white hover:bg-white/10"
+                            )}
+                            aria-label="Toggle menu"
                         >
-                            <Phone className="h-4 w-4" />
-                            <span>2660-7373</span>
-                        </a>
-                        <span className="hidden items-center gap-2 md:flex">
-                            <MapPin className="h-4 w-4" />
-                            <span>San Miguel, El Salvador</span>
-                        </span>
+                            <div className="relative w-6 h-6">
+                                <span className={cn(
+                                    "absolute left-0 w-6 h-0.5 bg-current transition-all duration-300",
+                                    isMobileMenuOpen ? "top-[11px] rotate-45" : "top-1"
+                                )} />
+                                <span className={cn(
+                                    "absolute left-0 top-[11px] w-6 h-0.5 bg-current transition-all duration-300",
+                                    isMobileMenuOpen ? "opacity-0 scale-x-0" : "opacity-100"
+                                )} />
+                                <span className={cn(
+                                    "absolute left-0 w-6 h-0.5 bg-current transition-all duration-300",
+                                    isMobileMenuOpen ? "top-[11px] -rotate-45" : "top-[19px]"
+                                )} />
+                            </div>
+                        </button>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <Link
-                            href="/contacto"
-                            className="text-white/90 transition-colors hover:text-primary-gold"
+                </nav>
+            </header>
+
+            {/* Mobile Menu - Full Screen Overlay */}
+            <div
+                className={cn(
+                    "fixed inset-0 z-40 lg:hidden transition-all duration-300",
+                    isMobileMenuOpen ? "visible" : "invisible"
+                )}
+            >
+                {/* Backdrop */}
+                <div
+                    className={cn(
+                        "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
+                        isMobileMenuOpen ? "opacity-100" : "opacity-0"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+
+                {/* Menu Panel */}
+                <div
+                    className={cn(
+                        "absolute right-0 top-0 bottom-0 w-full max-w-[320px] sm:max-w-[380px] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col",
+                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                    )}
+                >
+                    {/* Mobile Header */}
+                    <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100">
+                        <div className="relative h-10 w-28">
+                            <Image
+                                src={LOGO_CONFIG.horizontal}
+                                alt="CRECE FINANCE"
+                                fill
+                                className="object-contain object-left"
+                                unoptimized
+                            />
+                        </div>
+                        <button
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
                         >
-                            Contáctanos
+                            <X className="h-6 w-6" />
+                        </button>
+                    </div>
+
+                    {/* Mobile Navigation */}
+                    <nav className="flex-1 overflow-y-auto py-4">
+                        <div className="px-4 sm:px-6 space-y-1">
+                            {navItems.map((item) => {
+                                const active = isActive(item.href);
+                                const isExpanded = expandedMobileItem === item.label;
+
+                                return (
+                                    <div key={item.href}>
+                                        <div className="flex items-center">
+                                            <Link
+                                                href={item.href}
+                                                onClick={() => !item.children && setIsMobileMenuOpen(false)}
+                                                className={cn(
+                                                    "flex-1 flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-200",
+                                                    active
+                                                        ? "bg-primary-blue text-white"
+                                                        : "text-gray-700 hover:bg-gray-50"
+                                                )}
+                                            >
+                                                <span className="flex-1">{item.label}</span>
+                                                {active && !item.children && (
+                                                    <span className="h-2 w-2 rounded-full bg-primary-gold animate-pulse" />
+                                                )}
+                                            </Link>
+                                            {item.children && (
+                                                <button
+                                                    onClick={() => toggleMobileSubmenu(item.label)}
+                                                    className={cn(
+                                                        "p-3 rounded-xl transition-colors",
+                                                        active ? "text-primary-blue" : "text-gray-400 hover:text-gray-600"
+                                                    )}
+                                                >
+                                                    <ChevronRight
+                                                        className={cn(
+                                                            "h-5 w-5 transition-transform duration-200",
+                                                            isExpanded && "rotate-90"
+                                                        )}
+                                                    />
+                                                </button>
+                                            )}
+                                        </div>
+
+                                        {/* Mobile Submenu */}
+                                        {item.children && (
+                                            <div
+                                                className={cn(
+                                                    "overflow-hidden transition-all duration-300",
+                                                    isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                                                )}
+                                            >
+                                                <div className="ml-4 mt-1 pl-4 border-l-2 border-gray-100 space-y-1">
+                                                    {item.children.map((child) => {
+                                                        const childActive = pathname === child.href;
+                                                        return (
+                                                            <Link
+                                                                key={child.href}
+                                                                href={child.href}
+                                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                                className={cn(
+                                                                    "flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200",
+                                                                    childActive
+                                                                        ? "bg-primary-gold/10 text-primary-gold"
+                                                                        : "text-gray-500 hover:text-primary-blue hover:bg-gray-50"
+                                                                )}
+                                                            >
+                                                                {child.icon && (
+                                                                    <span className={cn(
+                                                                        "flex h-8 w-8 items-center justify-center rounded-lg",
+                                                                        childActive ? "bg-primary-gold/20 text-primary-gold" : "bg-gray-100 text-gray-400"
+                                                                    )}>
+                                                                        {React.cloneElement(child.icon as React.ReactElement<any>, { className: "h-4 w-4" })}
+                                                                    </span>
+                                                                )}
+                                                                {child.label}
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </nav>
+
+                    {/* Mobile Footer */}
+                    <div className="p-4 sm:p-6 border-t border-gray-100 bg-gray-50/50">
+                        <Link href="/contacto" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                            <Button className="w-full justify-center py-3 text-base shadow-lg shadow-primary-gold/20">
+                                Contáctanos
+                            </Button>
                         </Link>
                     </div>
                 </div>
             </div>
-
-            {/* Main Navigation */}
-            <nav className="container mx-auto px-6">
-                <div className="flex h-20 items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center">
-                        <div className="relative h-14 w-40 md:w-48">
-                            <Image
-                                src={isScrolled ? LOGO_CONFIG.horizontal : LOGO_CONFIG.white}
-                                alt="CRECE FINANCE"
-                                fill
-                                className="object-contain object-left"
-                                priority
-                                unoptimized
-                            />
-                        </div>
-                    </Link>
-
-                    {/* Desktop Navigation */}
-                    <div className="hidden items-center gap-1 lg:flex">
-                        {navItems.map((item) => (
-                            <div
-                                key={item.href}
-                                className="relative"
-                                onMouseEnter={() =>
-                                    item.children && setOpenDropdown(item.label)
-                                }
-                                onMouseLeave={() => setOpenDropdown(null)}
-                            >
-                                <Link
-                                    href={item.href}
-                                    className={cn(
-                                        "flex items-center gap-1 rounded-lg px-4 py-2 font-medium transition-colors",
-                                        isScrolled
-                                            ? "text-gray-700 hover:bg-primary-blue/5 hover:text-primary-blue"
-                                            : "text-white/90 hover:bg-white/10 hover:text-white"
-                                    )}
-                                >
-                                    {item.label}
-                                    {item.children && (
-                                        <ChevronDown
-                                            className={cn(
-                                                "h-4 w-4 transition-transform",
-                                                openDropdown === item.label && "rotate-180"
-                                            )}
-                                        />
-                                    )}
-                                </Link>
-                                {item.children && (
-                                    <Dropdown
-                                        items={item.children}
-                                        isOpen={openDropdown === item.label}
-                                    />
-                                )}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* CTA Button */}
-                    <div className="hidden lg:block">
-                        <Button variant="primary" size="sm">
-                            Solicitar Crédito
-                        </Button>
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className={cn(
-                            "rounded-lg p-2 transition-colors lg:hidden",
-                            isScrolled
-                                ? "text-primary-blue hover:bg-primary-blue/10"
-                                : "text-white hover:bg-white/10"
-                        )}
-                    >
-                        {isMobileMenuOpen ? (
-                            <X className="h-6 w-6" />
-                        ) : (
-                            <Menu className="h-6 w-6" />
-                        )}
-                    </button>
-                </div>
-            </nav>
-
-            {/* Mobile Menu */}
-            <div
-                className={cn(
-                    "fixed inset-x-0 top-[120px] bottom-0 bg-white transition-all duration-300 lg:hidden",
-                    isMobileMenuOpen
-                        ? "visible opacity-100"
-                        : "invisible opacity-0"
-                )}
-            >
-                <nav className="container mx-auto px-6 py-4">
-                    {navItems.map((item) => (
-                        <div key={item.href} className="border-b border-gray-100">
-                            <Link
-                                href={item.href}
-                                className="flex items-center justify-between py-4 font-medium text-gray-700"
-                                onClick={() => !item.children && setIsMobileMenuOpen(false)}
-                            >
-                                {item.label}
-                                {item.children && <ChevronDown className="h-5 w-5" />}
-                            </Link>
-                            {item.children && (
-                                <div className="pb-4 pl-4">
-                                    {item.children.map((child) => (
-                                        <Link
-                                            key={child.href}
-                                            href={child.href}
-                                            className="flex items-center gap-3 py-2 text-gray-600 hover:text-primary-blue"
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                        >
-                                            {child.icon}
-                                            {child.label}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                    <div className="mt-6">
-                        <Button variant="primary" size="lg" className="w-full">
-                            Solicitar Crédito
-                        </Button>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        </>
     );
 }
