@@ -12,6 +12,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     rightIcon?: React.ReactNode;
 }
 
+/**
+ * Componente Button reutilizable
+ * Variantes: primary (dorado), secondary (azul), outline, ghost
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
@@ -70,12 +74,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 disabled={disabled || isLoading}
                 {...props}
             >
-                {/* Shine Effect */}
+                {/* Efecto de brillo en hover */}
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 </span>
 
-                {/* Content */}
+                {/* Contenido del botón */}
                 <span className="relative flex items-center justify-center">
                     {isLoading ? (
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />

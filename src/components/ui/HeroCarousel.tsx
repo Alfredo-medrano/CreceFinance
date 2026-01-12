@@ -16,9 +16,10 @@ interface CarouselSlide {
     ctaLink?: string;
 }
 
-// ============================================
-// 🎨 CONFIGURA TUS IMÁGENES AQUÍ
-// ============================================
+/**
+ * Configuración de diapositivas del carrusel
+ * Cada slide representa una promoción o servicio destacado
+ */
 const defaultSlides: CarouselSlide[] = [
     {
         id: 1,
@@ -69,6 +70,10 @@ interface HeroCarouselProps {
     className?: string;
 }
 
+/**
+ * Componente HeroCarousel
+ * Carrusel principal con transiciones animadas y navegación
+ */
 export function HeroCarousel({
     slides = defaultSlides,
     autoPlay = true,
@@ -106,11 +111,8 @@ export function HeroCarousel({
         <section
             className={cn("relative h-screen min-h-[700px] w-full overflow-hidden", className)}
         >
-            {/* ============================================
-          FONDO DEGRADADO AZUL CON LÍNEAS DORADAS SUTILES
-          ============================================ */}
+            {/* Fondo degradado con líneas decorativas */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800 z-0">
-                {/* Líneas doradas decorativas - muy sutiles */}
                 <svg
                     className="absolute inset-0 w-full h-full"
                     xmlns="http://www.w3.org/2000/svg"
@@ -126,17 +128,18 @@ export function HeroCarousel({
                         </linearGradient>
                     </defs>
 
-                    {/* Líneas diagonales muy sutiles */}
+                    {/* Líneas diagonales decorativas */}
                     <line x1="0" y1="30%" x2="100%" y2="42%" stroke="url(#goldGradientCarousel)" strokeWidth="1" />
                     <line x1="0" y1="50%" x2="100%" y2="62%" stroke="url(#goldGradientCarousel)" strokeWidth="2" />
                     <line x1="0" y1="70%" x2="100%" y2="82%" stroke="url(#goldGradientCarousel)" strokeWidth="1" />
                 </svg>
 
-                {/* Círculos decorativos con gradiente - más sutiles */}
+                {/* Círculos de resplandor */}
                 <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary-gold/10 to-transparent blur-3xl" />
                 <div className="absolute bottom-[-15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-primary-gold/10 to-transparent blur-3xl" />
             </div>
-            {/* Slides */}
+
+            {/* Diapositivas */}
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
@@ -147,12 +150,9 @@ export function HeroCarousel({
                             : "opacity-0 z-0"
                     )}
                 >
-                    {/* Background Image Layer */}
+                    {/* Capa de imagen de fondo */}
                     <div className="absolute inset-0 overflow-hidden">
-                        {/* Placeholder background while image loads */}
                         <div className="absolute inset-0 bg-primary-blue" />
-
-                        {/* Image - fixed position, no animation on load */}
                         <Image
                             src={slide.imageUrl}
                             alt={slide.title}
@@ -164,12 +164,12 @@ export function HeroCarousel({
                             loading={index === 0 ? "eager" : "lazy"}
                         />
 
-                        {/* Gradient overlays for text readability */}
+                        {/* Capas de degradado para legibilidad */}
                         <div className="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/75 to-primary-blue/40 z-10" />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary-blue/70 via-transparent to-primary-blue/30 z-10" />
                     </div>
 
-                    {/* Animated golden accent line */}
+                    {/* Línea dorada animada */}
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 z-5 pointer-events-none overflow-hidden">
                         <div
                             className={cn(
@@ -179,11 +179,11 @@ export function HeroCarousel({
                         />
                     </div>
 
-                    {/* Content */}
+                    {/* Contenido del slide */}
                     <div className="relative z-20 flex h-full items-center">
                         <div className="container mx-auto px-6 lg:px-8">
                             <div className="max-w-2xl lg:max-w-3xl">
-                                {/* Subtitle Badge */}
+                                {/* Etiqueta del subtítulo */}
                                 <div
                                     className={cn(
                                         "transition-all duration-700 delay-100",
@@ -198,7 +198,7 @@ export function HeroCarousel({
                                     </span>
                                 </div>
 
-                                {/* Title */}
+                                {/* Título principal */}
                                 <h1
                                     className={cn(
                                         "mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] transition-all duration-700 delay-200",
@@ -210,7 +210,7 @@ export function HeroCarousel({
                                     {slide.title}
                                 </h1>
 
-                                {/* Description */}
+                                {/* Descripción */}
                                 <p
                                     className={cn(
                                         "mb-10 text-lg text-white/85 md:text-xl lg:text-2xl leading-relaxed max-w-xl transition-all duration-700 delay-300",
@@ -222,7 +222,7 @@ export function HeroCarousel({
                                     {slide.description}
                                 </p>
 
-                                {/* CTA Buttons */}
+                                {/* Botones de acción */}
                                 {slide.ctaText && (
                                     <div
                                         className={cn(
@@ -254,7 +254,7 @@ export function HeroCarousel({
                 </div>
             ))}
 
-            {/* Progress Bar */}
+            {/* Barra de progreso */}
             <div className="absolute bottom-0 left-0 right-0 z-30 h-1 bg-white/10">
                 <div
                     key={currentSlide}
@@ -265,7 +265,7 @@ export function HeroCarousel({
                 />
             </div>
 
-            {/* Navigation Arrows */}
+            {/* Flechas de navegación */}
             <button
                 onClick={prevSlide}
                 className="absolute left-6 top-1/2 z-30 -translate-y-1/2 group"
@@ -285,7 +285,7 @@ export function HeroCarousel({
                 </div>
             </button>
 
-            {/* Dots Navigation */}
+            {/* Indicadores de navegación */}
             <div className="absolute bottom-16 left-1/2 z-30 flex -translate-x-1/2 gap-3">
                 {slides.map((slide, index) => (
                     <button
@@ -306,7 +306,7 @@ export function HeroCarousel({
                 ))}
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Indicador de scroll */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-2 text-white/50">
                 <span className="text-xs uppercase tracking-[0.2em]">Descubre más</span>
                 <div className="w-6 h-10 rounded-full border-2 border-primary-gold/30 flex items-start justify-center p-2">
@@ -314,7 +314,7 @@ export function HeroCarousel({
                 </div>
             </div>
 
-            {/* Bottom Curve */}
+            {/* Curva inferior decorativa */}
             <div className="absolute -bottom-1 left-0 right-0 z-20">
                 <svg
                     viewBox="0 0 1440 80"
@@ -330,7 +330,7 @@ export function HeroCarousel({
                 </svg>
             </div>
 
-            {/* Progress animation */}
+            {/* Animación de progreso */}
             <style jsx>{`
         @keyframes progress {
           from { width: 0%; }

@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/Button";
 import {
     PiggyBank,
     Gift,
-    Coins,
+    TrendingUp,
+    Star,
     Briefcase,
-    CreditCard,
-    Building,
+    Home,
     LucideIcon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -20,9 +20,15 @@ interface Service {
     features: string[];
     href: string;
     variant: "default" | "featured";
+    category: "ahorros" | "inversiones" | "prestamos";
 }
 
+/**
+ * Catálogo de servicios destacados
+ * 2 productos por categoría: Ahorros, Inversiones, Préstamos
+ */
 const services: Service[] = [
+    // Productos de ahorro
     {
         icon: PiggyBank,
         title: "Ahorro Plazo Fijo",
@@ -31,6 +37,7 @@ const services: Service[] = [
         features: ["Tasas competitivas", "Capital protegido", "Intereses mensuales"],
         href: "/ahorros/plazo-fijo",
         variant: "default",
+        category: "ahorros",
     },
     {
         icon: Gift,
@@ -40,16 +47,30 @@ const services: Service[] = [
         features: ["Sin comisiones", "Bonificación especial", "Retiro en diciembre"],
         href: "/ahorros/navideno",
         variant: "featured",
+        category: "ahorros",
+    },
+    // Productos de inversión
+    {
+        icon: TrendingUp,
+        title: "Acciones Preferidas",
+        description:
+            "Invierte en acciones preferidas y obtén dividendos atractivos. Haz crecer tu patrimonio con seguridad.",
+        features: ["Dividendos competitivos", "Inversión segura", "Rendimiento garantizado"],
+        href: "/inversiones/acciones-preferidas",
+        variant: "default",
+        category: "inversiones",
     },
     {
-        icon: Coins,
-        title: "Ahorro Programado",
+        icon: Star,
+        title: "Acciones Preferentes Plus",
         description:
-            "Establece metas de ahorro y alcánzalas. Ideal para proyectos personales y familiares.",
-        features: ["Metas personalizadas", "Depósitos flexibles", "Seguimiento en línea"],
-        href: "/ahorros/programado",
-        variant: "default",
+            "Nuestra opción premium de inversión con los mejores rendimientos del mercado para inversionistas exigentes.",
+        features: ["Máximo rendimiento", "Beneficios exclusivos", "Asesoría personalizada"],
+        href: "/inversiones/acciones-preferentes-plus",
+        variant: "featured",
+        category: "inversiones",
     },
+    // Productos de préstamo
     {
         icon: Briefcase,
         title: "Microcréditos",
@@ -57,35 +78,39 @@ const services: Service[] = [
             "Impulsa tu pequeño negocio con financiamiento rápido y accesible. Requisitos mínimos y aprobación ágil.",
         features: ["Aprobación rápida", "Montos flexibles", "Asesoría incluida"],
         href: "/prestamos/microcreditos",
+        variant: "default",
+        category: "prestamos",
+    },
+    {
+        icon: Home,
+        title: "Préstamo de Vivienda",
+        description:
+            "Haz realidad el sueño de tu casa propia con tasas preferenciales y plazos cómodos de hasta 20 años.",
+        features: ["Tasas preferenciales", "Plazos hasta 20 años", "Asesoría legal incluida"],
+        href: "/prestamos/vivienda",
         variant: "featured",
-    },
-    {
-        icon: CreditCard,
-        title: "Préstamo Personal",
-        description:
-            "Financia tus proyectos personales con tasas preferenciales y plazos cómodos de pago.",
-        features: ["Tasas preferenciales", "Plazos flexibles", "Sin fiador"],
-        href: "/prestamos/personal",
-        variant: "default",
-    },
-    {
-        icon: Building,
-        title: "Crédito PYME",
-        description:
-            "Soluciones financieras para pequeñas y medianas empresas. Crece tu negocio con nosotros.",
-        features: ["Montos mayores", "Asesoría empresarial", "Plazos extendidos"],
-        href: "/prestamos/pyme",
-        variant: "default",
+        category: "prestamos",
     },
 ];
 
+/** Etiquetas visuales por categoría */
+const categoryLabels = {
+    ahorros: { label: "Ahorros", color: "bg-emerald-500" },
+    inversiones: { label: "Inversiones", color: "bg-primary-gold" },
+    prestamos: { label: "Préstamos", color: "bg-primary-blue" },
+};
+
+/**
+ * Sección de servicios destacados
+ * Muestra 6 productos organizados por categoría
+ */
 export function ServicesSection() {
     const router = useRouter();
 
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-6">
-                {/* Section Header */}
+                {/* Encabezado */}
                 <div className="text-center mb-16">
                     <span className="inline-block mb-4 rounded-full bg-primary-gold/10 px-4 py-2 text-sm font-semibold text-primary-gold">
                         Nuestros Servicios
@@ -94,28 +119,45 @@ export function ServicesSection() {
                         Soluciones Financieras a tu Medida
                     </h2>
                     <p className="mx-auto max-w-2xl text-lg text-gray-600">
-                        Descubre nuestra amplia gama de productos diseñados para impulsar tu
-                        crecimiento económico personal y empresarial.
+                        Descubre nuestra amplia gama de productos en ahorros, inversiones y
+                        préstamos diseñados para impulsar tu crecimiento económico.
                     </p>
                 </div>
 
-                {/* Services Grid */}
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {services.map((service) => (
-                        <ServiceCard
-                            key={service.title}
-                            icon={service.icon}
-                            title={service.title}
-                            description={service.description}
-                            features={service.features}
-                            variant={service.variant}
-                            ctaText="Ver detalles"
-                            onCtaClick={() => router.push(service.href)}
-                        />
+                {/* Leyenda de categorías */}
+                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    {Object.entries(categoryLabels).map(([key, { label, color }]) => (
+                        <div key={key} className="flex items-center gap-2">
+                            <span className={`w-3 h-3 rounded-full ${color}`} />
+                            <span className="text-sm font-medium text-gray-600">{label}</span>
+                        </div>
                     ))}
                 </div>
 
-                {/* CTA */}
+                {/* Grilla de servicios */}
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    {services.map((service) => (
+                        <div key={service.title} className="relative">
+                            {/* Etiqueta de categoría */}
+                            <div className="absolute -top-3 left-4 z-10">
+                                <span className={`px-3 py-1 text-xs font-bold text-white rounded-full ${categoryLabels[service.category].color}`}>
+                                    {categoryLabels[service.category].label}
+                                </span>
+                            </div>
+                            <ServiceCard
+                                icon={service.icon}
+                                title={service.title}
+                                description={service.description}
+                                features={service.features}
+                                variant={service.variant}
+                                ctaText="Ver detalles"
+                                onCtaClick={() => router.push(service.href)}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Enlace a todos los servicios */}
                 <div className="mt-16 text-center">
                     <Button
                         variant="secondary"

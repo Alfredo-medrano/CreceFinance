@@ -1,15 +1,13 @@
 /**
- * Cloudinary Configuration
- * 
- * This file contains utilities for working with Cloudinary images
- * in the CRECE FINANCE website.
+ * Configuración de Cloudinary
+ * Utilidades para gestión de imágenes en el sitio web CRECE FINANCE
  */
 
-// Cloudinary cloud name from environment variable
+/** Nombre del cloud de Cloudinary */
 export const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "demo";
 
 /**
- * Build a Cloudinary URL for an image
+ * Construye una URL de Cloudinary con transformaciones
  */
 export function getCloudinaryUrl(
     publicId: string,
@@ -48,34 +46,25 @@ export function getCloudinaryUrl(
     return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}${publicId}`;
 }
 
-/**
- * Predefined image configurations for the CRECE FINANCE website
- */
+/** Rutas de imágenes predefinidas del sitio */
 export const cloudinaryImages = {
-    // Hero carousel images
     hero: {
         slide1: "crece-finance/hero/slide1",
         slide2: "crece-finance/hero/slide2",
         slide3: "crece-finance/hero/slide3",
         slide4: "crece-finance/hero/slide4",
     },
-
-    // Logo variations
     logos: {
         main: "crece-finance/logos/logo-main",
         white: "crece-finance/logos/logo-white",
         icon: "crece-finance/logos/isotipo",
         horizontal: "crece-finance/logos/logo-horizontal",
     },
-
-    // Service images
     services: {
         savings: "crece-finance/services/ahorro",
         loans: "crece-finance/services/prestamos",
         investments: "crece-finance/services/inversiones",
     },
-
-    // Team/About
     about: {
         team: "crece-finance/about/equipo",
         office: "crece-finance/about/oficina",
@@ -83,7 +72,7 @@ export const cloudinaryImages = {
 };
 
 /**
- * Get hero image URL with proper dimensions for carousel
+ * Obtiene URL de imagen hero con dimensiones optimizadas
  */
 export function getHeroImageUrl(publicId: string): string {
     return getCloudinaryUrl(publicId, {
@@ -97,7 +86,7 @@ export function getHeroImageUrl(publicId: string): string {
 }
 
 /**
- * Get logo URL with proper settings
+ * Obtiene URL de logo con configuración según variante
  */
 export function getLogoUrl(publicId: string, variant: "small" | "medium" | "large" = "medium"): string {
     const sizes = {

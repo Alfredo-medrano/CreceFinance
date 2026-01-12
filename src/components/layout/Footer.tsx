@@ -12,14 +12,13 @@ import {
     ArrowRight,
 } from "lucide-react";
 
-// ============================================
-// 🎨 CONFIGURA TU IMAGEN DE FONDO AQUÍ
-// ============================================
+/** Configuración de assets del Footer */
 const FOOTER_CONFIG = {
     backgroundImage: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767993424/se%C3%B1oraRiendo_fo7shy.webp",
     logo: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/Horizontal2_ebpdri.png",
 };
 
+/** Enlaces de navegación rápida */
 const quickLinks = [
     { label: "Inicio", href: "/" },
     { label: "Nosotros", href: "/nosotros" },
@@ -28,6 +27,7 @@ const quickLinks = [
     { label: "Contacto", href: "/contacto" },
 ];
 
+/** Lista de servicios destacados */
 const services = [
     { label: "Ahorro Plazo Fijo", href: "/ahorros/plazo-fijo" },
     { label: "Inversiones", href: "/inversiones" },
@@ -36,14 +36,16 @@ const services = [
     { label: "Servicios Adicionales", href: "/servicios" },
 ];
 
+/**
+ * Componente Footer
+ * Pie de página con información de contacto, enlaces y redes sociales
+ */
 export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="relative text-white overflow-hidden">
-            {/* ============================================
-          CAPA 1: IMAGEN DE FONDO
-          ============================================ */}
+            {/* Imagen de fondo */}
             <div className="absolute inset-0">
                 <Image
                     src={FOOTER_CONFIG.backgroundImage}
@@ -55,15 +57,11 @@ export function Footer() {
                 />
             </div>
 
-            {/* ============================================
-          CAPA 2: DEGRADADO AZUL
-          ============================================ */}
+            {/* Capa de degradado azul */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue/95 to-primary-blue/90" />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-blue-900 via-primary-blue/80 to-transparent" />
 
-            {/* ============================================
-          CAPA 3: LÍNEAS DORADAS DECORATIVAS
-          ============================================ */}
+            {/* Líneas doradas decorativas */}
             <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -79,22 +77,16 @@ export function Footer() {
                     </linearGradient>
                 </defs>
 
-                {/* Líneas diagonales */}
                 <line x1="0" y1="10%" x2="100%" y2="25%" stroke="url(#footerGoldLine)" strokeWidth="2" opacity="0.3" />
                 <line x1="0" y1="30%" x2="100%" y2="45%" stroke="url(#footerGoldLine)" strokeWidth="1.5" opacity="0.25" />
                 <line x1="0" y1="60%" x2="100%" y2="75%" stroke="url(#footerGoldLine)" strokeWidth="2.5" opacity="0.35" />
                 <line x1="0" y1="80%" x2="100%" y2="95%" stroke="url(#footerGoldLine)" strokeWidth="1" opacity="0.2" />
             </svg>
 
-            {/* ============================================
-          CAPA 4: EFECTOS DECORATIVOS
-          ============================================ */}
+            {/* Efectos decorativos */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Círculos con glow dorado */}
                 <div className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-primary-gold/15 blur-3xl" />
                 <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-primary-gold/10 blur-3xl" />
-
-                {/* Patrón de puntos dorados */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"
                     style={{
@@ -104,9 +96,7 @@ export function Footer() {
                 />
             </div>
 
-            {/* ============================================
-          CURVA SUPERIOR
-          ============================================ */}
+            {/* Curva superior decorativa */}
             <div className="absolute -top-1 left-0 right-0 z-10">
                 <svg
                     viewBox="0 0 1440 60"
@@ -119,7 +109,6 @@ export function Footer() {
                         d="M0 60L48 54C96 48 192 36 288 30C384 24 480 24 576 27C672 30 768 36 864 39C960 42 1056 42 1152 36C1248 30 1344 18 1392 12L1440 6V60H0Z"
                         fill="white"
                     />
-                    {/* Línea dorada en la curva */}
                     <path
                         d="M0 54L48 48C96 42 192 30 288 24C384 18 480 18 576 21C672 24 768 30 864 33C960 36 1056 36 1152 30C1248 24 1344 12 1392 6L1440 0"
                         stroke="#e5a810"
@@ -130,12 +119,10 @@ export function Footer() {
                 </svg>
             </div>
 
-            {/* ============================================
-          CONTENIDO PRINCIPAL
-          ============================================ */}
+            {/* Contenido principal */}
             <div className="relative z-20 container mx-auto px-6 py-16 pt-24">
                 <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-                    {/* Company Info */}
+                    {/* Información de la empresa */}
                     <div className="lg:col-span-1">
                         <Link href="/" className="mb-6 flex items-center">
                             <div className="relative h-14 w-40">
@@ -180,7 +167,7 @@ export function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Enlaces rápidos */}
                     <div>
                         <h3 className="mb-6 font-heading text-lg font-bold text-white flex items-center gap-2">
                             <span className="w-8 h-[2px] bg-primary-gold"></span>
@@ -201,7 +188,7 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services */}
+                    {/* Servicios */}
                     <div>
                         <h3 className="mb-6 font-heading text-lg font-bold text-white flex items-center gap-2">
                             <span className="w-8 h-[2px] bg-primary-gold"></span>
@@ -222,7 +209,7 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
+                    {/* Información de contacto */}
                     <div>
                         <h3 className="mb-6 font-heading text-lg font-bold text-white flex items-center gap-2">
                             <span className="w-8 h-[2px] bg-primary-gold"></span>
@@ -288,9 +275,7 @@ export function Footer() {
                 </div>
             </div>
 
-            {/* ============================================
-          BARRA INFERIOR
-          ============================================ */}
+            {/* Barra inferior con copyright */}
             <div className="relative z-20 border-t border-primary-gold/20">
                 <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
                     <p className="text-sm text-white/60">

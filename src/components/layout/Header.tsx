@@ -24,9 +24,7 @@ import {
     Home,
 } from "lucide-react";
 
-// ============================================
-// 🎨 CONFIGURA TUS LOGOS AQUÍ
-// ============================================
+/** URLs de logos desde Cloudinary */
 const LOGO_CONFIG = {
     horizontal: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/Horizontal2_ebpdri.png",
     white: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/Horizontal2_ebpdri.png",
@@ -40,6 +38,7 @@ interface NavItem {
     icon?: React.ReactNode;
 }
 
+/** Estructura de navegación principal */
 const navItems: NavItem[] = [
     { label: "Inicio", href: "/" },
     { label: "Nosotros", href: "/nosotros" },
@@ -79,6 +78,10 @@ const navItems: NavItem[] = [
     { label: "Contacto", href: "/contacto" },
 ];
 
+/**
+ * Componente Header
+ * Navegación principal con soporte para desktop y móvil
+ */
 export function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -94,13 +97,13 @@ export function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Close mobile menu on route change
+    // Cerrar menú móvil al cambiar de ruta
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setExpandedMobileItem(null);
     }, [pathname]);
 
-    // Prevent body scroll when mobile menu is open
+    // Bloquear scroll del body cuando el menú móvil está abierto
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -147,7 +150,7 @@ export function Header() {
                             </div>
                         </Link>
 
-                        {/* Desktop Navigation - Hidden on mobile/tablet */}
+                        {/* Navegación desktop */}
                         <div className="hidden lg:flex items-center gap-1 xl:gap-2">
                             {navItems.map((item) => {
                                 const active = isActive(item.href);
@@ -182,7 +185,7 @@ export function Header() {
                                             )}
                                         </Link>
 
-                                        {/* Dropdown Menu */}
+                                        {/* Menú desplegable */}
                                         {item.children && (
                                             <div
                                                 className={cn(
@@ -228,7 +231,7 @@ export function Header() {
                             })}
                         </div>
 
-                        {/* Mobile Menu Button */}
+                        {/* Botón menú móvil */}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className={cn(
@@ -260,14 +263,14 @@ export function Header() {
                 </nav>
             </header>
 
-            {/* Mobile Menu - Full Screen Overlay */}
+            {/* Menú móvil - Panel lateral */}
             <div
                 className={cn(
                     "fixed inset-0 z-40 lg:hidden transition-all duration-300",
                     isMobileMenuOpen ? "visible" : "invisible"
                 )}
             >
-                {/* Backdrop */}
+                {/* Fondo oscuro */}
                 <div
                     className={cn(
                         "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
@@ -276,14 +279,14 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                 />
 
-                {/* Menu Panel */}
+                {/* Panel del menú */}
                 <div
                     className={cn(
                         "absolute right-0 top-0 bottom-0 w-full max-w-[320px] sm:max-w-[380px] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col",
                         isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                     )}
                 >
-                    {/* Mobile Header */}
+                    {/* Cabecera del menú móvil */}
                     <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100">
                         <div className="relative h-10 w-28">
                             <Image
@@ -302,7 +305,7 @@ export function Header() {
                         </button>
                     </div>
 
-                    {/* Mobile Navigation */}
+                    {/* Navegación móvil */}
                     <nav className="flex-1 overflow-y-auto py-4">
                         <div className="px-4 sm:px-6 space-y-1">
                             {navItems.map((item) => {
@@ -345,7 +348,7 @@ export function Header() {
                                             )}
                                         </div>
 
-                                        {/* Mobile Submenu */}
+                                        {/* Submenú móvil */}
                                         {item.children && (
                                             <div
                                                 className={cn(
@@ -389,7 +392,7 @@ export function Header() {
                         </div>
                     </nav>
 
-                    {/* Mobile Footer */}
+                    {/* Pie del menú móvil */}
                     <div className="p-4 sm:p-6 border-t border-gray-100 bg-gray-50/50">
                         <Link href="/contacto" onClick={() => setIsMobileMenuOpen(false)} className="block">
                             <Button className="w-full justify-center py-3 text-base shadow-lg shadow-primary-gold/20">

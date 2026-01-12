@@ -1,5 +1,5 @@
 import { HeroCarousel } from "@/components/ui";
-import { ServicesSection } from "@/components/sections";
+import { ServicesSection, AppDownloadSection, VideoTutorialSection } from "@/components/sections";
 import {
   TrendingUp,
   Shield,
@@ -10,6 +10,9 @@ import {
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
+/**
+ * Características destacadas para la sección "¿Por qué elegirnos?"
+ */
 const features = [
   {
     icon: Shield,
@@ -33,20 +36,24 @@ const features = [
   },
 ];
 
+/**
+ * Página principal - Punto de entrada del sitio
+ * Estructura: Hero > Servicios > Beneficios > App > Video > CTA
+ */
 export default function Home() {
   return (
     <>
-      {/* Hero Section with Carousel */}
+      {/* Carrusel principal */}
       <HeroCarousel />
 
-      {/* Services Section */}
+      {/* Catálogo de servicios */}
       <ServicesSection />
 
-      {/* Why Choose Us Section */}
+      {/* Propuesta de valor */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            {/* Content */}
+            {/* Contenido textual */}
             <div>
               <span className="inline-block mb-4 rounded-full bg-primary-blue/10 px-4 py-2 text-sm font-semibold text-primary-blue">
                 ¿Por qué elegirnos?
@@ -77,7 +84,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Image/Stats */}
+            {/* Panel de estadísticas */}
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-brand p-8 lg:p-12">
                 <div className="flex h-full flex-col items-center justify-center text-center text-white">
@@ -98,7 +105,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* Decorative elements */}
+              {/* Efectos decorativos */}
               <div className="absolute -right-4 -top-4 h-24 w-24 rounded-2xl bg-primary-gold/20 blur-2xl" />
               <div className="absolute -bottom-4 -left-4 h-32 w-32 rounded-2xl bg-primary-blue/20 blur-2xl" />
             </div>
@@ -106,9 +113,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Descarga de aplicación móvil */}
+      <AppDownloadSection />
+
+      {/* Tutorial en video */}
+      <VideoTutorialSection videoId="dQw4w9WgXcQ" />
+
+      {/* Llamado a la acción final */}
       <section className="relative overflow-hidden bg-primary-blue py-20">
-        {/* Decorative */}
+        {/* Elementos decorativos */}
         <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary-gold/20 blur-3xl" />
         <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-primary-gold/10 blur-3xl" />
 

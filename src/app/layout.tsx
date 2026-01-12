@@ -4,6 +4,11 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
+/**
+ * Configuración de fuentes tipográficas
+ * Open Sans: Cuerpo de texto
+ * Roboto: Títulos y encabezados
+ */
 const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
@@ -18,12 +23,13 @@ const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
 });
 
-// ============================================
-// 🎨 CONFIGURA EL FAVICON AQUÍ
-// Pega la URL de tu isotipo/icono de Cloudinary
-// ============================================
+/** URL del favicon desde Cloudinary */
 const FAVICON_URL = "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/logo2_qcbu5g.png";
 
+/**
+ * Metadatos SEO del sitio
+ * Configuración para buscadores y redes sociales
+ */
 export const metadata: Metadata = {
   metadataBase: new URL('https://crecefinance.com.sv'),
   title: {
@@ -66,7 +72,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Favicon configuration
   icons: {
     icon: [
       { url: FAVICON_URL, type: "image/png" },
@@ -106,6 +111,10 @@ export const metadata: Metadata = {
   category: 'finance',
 };
 
+/**
+ * Layout raíz de la aplicación
+ * Estructura base: Header + Contenido + Footer
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -114,7 +123,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Favicon from Cloudinary */}
         <link rel="icon" href={FAVICON_URL} />
         <link rel="apple-touch-icon" href={FAVICON_URL} />
       </head>
