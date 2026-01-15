@@ -1,0 +1,13 @@
+[build]
+  # Comando para construir la aplicación
+  command = "npm run build"
+  # Directorio de publicación para Next.js
+  publish = ".next"
+
+[build.environment]
+  # Versión de Node.js compatible con Next.js 16
+  NODE_VERSION = "20"
+
+# Plugin oficial de Netlify para Next.js
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
