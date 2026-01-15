@@ -1,16 +1,8 @@
 import type { NextConfig } from "next";
-import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
-
-// Configura el entorno de desarrollo para Cloudflare
-if (process.env.NODE_ENV === "development") {
-  setupDevPlatform();
-}
 
 const nextConfig: NextConfig = {
-  // Requerido para Cloudflare Pages
-  output: "standalone",
   images: {
-    // Allow images from external sources
+    // Permitir imágenes de fuentes externas
     remotePatterns: [
       {
         protocol: "https",
@@ -29,11 +21,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        // Allow any HTTPS image (useful for pasting any URL)
+        // Permitir cualquier imagen HTTPS
         hostname: "**",
       },
     ],
-    // Cloudflare no soporta Image Optimization API nativo
     // Las imágenes ya están optimizadas desde Cloudinary
     unoptimized: true,
   },

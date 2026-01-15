@@ -248,7 +248,7 @@ export function Footer() {
                                     <Mail className="h-5 w-5 text-primary-gold" />
                                 </div>
                                 <div>
-                                    <p className="font-medium text-white">Email</p>
+                                    <p className="font-medium text-white">Soporte</p>
                                     <a
                                         href="mailto:info@crecefinance.com"
                                         className="text-sm text-white/70 transition-colors hover:text-primary-gold"

@@ -14,7 +14,7 @@ import { HeroCarousel } from "@/components/ui/HeroCarousel";
 
 export const metadata: Metadata = {
     title: "Inversiones | CRECE FINANCE - Acciones Preferidas y Plus",
-    description: "Invierte tu dinero con CRECE FINANCE. Acciones Preferidas y Acciones Preferentes Plus con dividendos atractivos y rendimientos competitivos.",
+    description: "Invierte tu dinero con CRECE FINANCE. Acciones Preferidas y Acciones Preferidas Plus con dividendos atractivos y rendimientos competitivos.",
     keywords: ["inversiones El Salvador", "acciones preferidas", "dividendos", "rendimientos", "invertir dinero", "CRECE FINANCE"],
     openGraph: {
         title: "Productos de Inversión | CRECE FINANCE",
@@ -33,11 +33,11 @@ const productosInversion = [
         href: "/inversiones/acciones-preferidas",
     },
     {
-        id: "acciones-preferentes-plus",
+        id: "acciones-preferidas-plus",
         icon: TrendingUp,
-        title: "Acciones Preferentes Plus",
+        title: "Acciones Preferidas Plus",
         description: "Alternativa dirigida a quienes buscan mayor rentabilidad, ofreciendo dividendos competitivos y condiciones preferenciales. Para maximizar el crecimiento de su capital.",
-        href: "/inversiones/acciones-preferentes-plus",
+        href: "/inversiones/acciones-preferidas-plus",
         destacado: true,
     },
 ];

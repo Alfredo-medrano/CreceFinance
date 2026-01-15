@@ -39,7 +39,7 @@ export default function AccionesPlusPage() {
                         </div>
                         <div>
                             <h1 className="font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl mb-4">
-                                Acciones Preferentes <span className="text-primary-gold">Plus</span>
+                                Acciones Preferidas <span className="text-primary-gold">Plus</span>
                             </h1>
                             <p className="text-xl text-white/80 max-w-2xl">
                                 Mayor rentabilidad con dividendos competitivos y condiciones preferenciales
@@ -62,10 +62,10 @@ export default function AccionesPlusPage() {
                     <div className="grid gap-12 lg:grid-cols-3">
                         <div className="lg:col-span-2">
                             <h2 className="font-heading text-2xl font-bold text-primary-blue mb-6">
-                                ¿Qué son las Acciones Preferentes Plus?
+                                ¿Qué son las Acciones Preferidas Plus?
                             </h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                                Las <strong className="text-primary-blue">Acciones Preferentes Plus</strong> son una alternativa
+                                Las <strong className="text-primary-blue">Acciones Preferidas Plus</strong> son una alternativa
                                 de inversión dirigida a quienes buscan <strong className="text-primary-gold">mayor rentabilidad</strong>,
                                 ofreciendo dividendos competitivos y condiciones preferenciales.
                             </p>
@@ -118,7 +118,7 @@ export default function AccionesPlusPage() {
                                 <div className="text-center mb-6">
                                     <TrendingUp className="h-10 w-10 text-primary-gold mx-auto mb-3" />
                                     <p className="text-sm text-gray-500">Tipo de inversión</p>
-                                    <p className="text-2xl font-bold text-primary-blue">Preferentes Plus</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Preferidas Plus</p>
                                 </div>
 
                                 <div className="space-y-4 mb-6">
@@ -160,7 +160,7 @@ export default function AccionesPlusPage() {
                         ¡Maximiza el crecimiento de tu capital!
                     </h2>
                     <p className="text-white/80 mb-6 max-w-xl mx-auto">
-                        Las Acciones Preferentes Plus te ofrecen los mejores rendimientos del mercado.
+                        Las Acciones Preferidas Plus te ofrecen los mejores rendimientos del mercado.
                     </p>
                     <Link href="/contacto">
                         <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>

@@ -8,7 +8,6 @@ import {
     Sparkles,
     ShoppingCart,
     Zap,
-    CreditCard,
     ShieldCheck
 } from "lucide-react";
 
@@ -65,7 +64,7 @@ export default function AhorroVistaPage() {
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
                                 Perfecta para manejar tus gastos del día a día, emergencias o cualquier necesidad
-                                inmediata que pueda surgir. Con acceso mediante tarjeta de débito y consultas en línea.
+                                inmediata que pueda surgir. Con consultas en línea y acceso en cualquier agencia.
                             </p>
 
                             <h3 className="font-heading text-xl font-bold text-primary-blue mb-4">
@@ -75,7 +74,7 @@ export default function AhorroVistaPage() {
                                 {[
                                     "Disponible en cualquier momento",
                                     "Sin monto mínimo de apertura",
-                                    "Acceso mediante tarjeta de débito",
+                                    "Acceso en cualquier agencia",
                                     "Consulta de saldo en línea",
                                     "Sin costo de mantenimiento",
                                     "Depósitos y retiros ilimitados",
@@ -99,10 +98,6 @@ export default function AhorroVistaPage() {
                                     <Zap className="h-6 w-6 text-primary-gold" />
                                     <span className="text-gray-700 font-medium">Emergencias</span>
                                 </div>
-                                <div className="flex items-center gap-3 p-4 rounded-xl bg-primary-blue/5 border border-primary-blue/10">
-                                    <CreditCard className="h-6 w-6 text-primary-gold" />
-                                    <span className="text-gray-700 font-medium">Pagos</span>
-                                </div>
                             </div>
                         </div>
 
@@ -123,10 +118,6 @@ export default function AhorroVistaPage() {
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Retiros</span>
                                         <span className="font-semibold text-primary-blue">Ilimitados</span>
-                                    </div>
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Tarjeta</span>
-                                        <span className="font-semibold text-primary-gold">Incluida</span>
                                     </div>
                                 </div>
 

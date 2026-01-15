@@ -62,11 +62,11 @@ const services: Service[] = [
     },
     {
         icon: Star,
-        title: "Acciones Preferentes Plus",
+        title: "Acciones Preferidas Plus",
         description:
             "Nuestra opción premium de inversión con los mejores rendimientos del mercado para inversionistas exigentes.",
         features: ["Máximo rendimiento", "Beneficios exclusivos", "Asesoría personalizada"],
-        href: "/inversiones/acciones-preferentes-plus",
+        href: "/inversiones/acciones-preferidas-plus",
         variant: "featured",
         category: "inversiones",
     },

@@ -58,7 +58,7 @@ const navItems: NavItem[] = [
         href: "/inversiones",
         children: [
             { label: "Acciones Preferidas", href: "/inversiones/acciones-preferidas", icon: <Coins className="h-4 w-4" /> },
-            { label: "Acciones Preferentes Plus", href: "/inversiones/acciones-preferentes-plus", icon: <TrendingUp className="h-4 w-4" /> },
+            { label: "Acciones Preferidas Plus", href: "/inversiones/acciones-preferidas-plus", icon: <TrendingUp className="h-4 w-4" /> },
         ],
     },
     {

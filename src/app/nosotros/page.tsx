@@ -20,11 +20,11 @@ import { HeroCarousel } from "@/components/ui/HeroCarousel";
 
 export const metadata: Metadata = {
     title: "Nosotros | CRECE FINANCE - Nuestra Historia y Valores",
-    description: "Conoce la historia de CRECE FINANCE, una cooperativa sólida con más de 200 años de experiencia combinada. Descubre nuestra misión, visión y valores institucionales.",
+    description: "Conoce la historia de CRECE FINANCE, una cooperativa sólida con más de 3 años de experiencia. Descubre nuestra misión, visión y valores institucionales.",
     keywords: ["CRECE FINANCE", "sobre nosotros", "historia", "cooperativa El Salvador", "valores institucionales", "misión visión", "San Miguel"],
     openGraph: {
         title: "Nosotros | CRECE FINANCE",
-        description: "Conoce nuestra historia, misión y valores. Más de 200 años de experiencia combinada al servicio de nuestros socios.",
+        description: "Conoce nuestra historia, misión y valores. Más de 3 años de experiencia al servicio de nuestros socios.",
         type: "website",
         locale: "es_SV",
     },
@@ -104,7 +104,7 @@ const valores = [
 // ESTADÍSTICAS
 // ============================================
 const stats = [
-    { number: "200+", label: "Años de experiencia combinada" },
+    { number: "3+", label: "Años de experiencia" },
     { number: "24", label: "Socios fundadores" },
     { number: "30+", label: "Familias generando empleo" },
     { number: "3", label: "Agencias en operación" },
@@ -176,7 +176,7 @@ export default function NosotrosPage() {
                                     Conscientes de que una institución fuerte se construye con personas y liderazgo, desde sus
                                     primeras etapas se incorporaron profesionales con amplia experiencia en el sector financiero,
                                     provenientes de distintas entidades del país. Esta integración permitió conformar un <strong className="text-primary-blue">equipo
-                                        multidisciplinario con una trayectoria combinada superior a los 200 años de experiencia</strong> en
+                                        multidisciplinario con más de 3 años de experiencia</strong> en
                                     el sistema financiero salvadoreño, caracterizado por su honestidad, integridad y
                                     profesionalismo, valores que hoy distinguen a Crece Finance.
                                 </p>

@@ -80,7 +80,7 @@ export function AppDownloadSection() {
 
                         {/* Botón de descarga */}
                         <Link
-                            href="https://play.google.com/store"
+                            href="https://play.google.com/store/apps/details?id=com.sstsoluciones.arisstoCrecefinanceProduccion2&pcampaignid=web_share"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-blue font-bold rounded-xl shadow-2xl shadow-black/20 hover:bg-primary-gold hover:text-white transition-all duration-300 group button-shine"
