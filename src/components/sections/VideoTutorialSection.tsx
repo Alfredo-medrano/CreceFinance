@@ -126,7 +126,7 @@ export function VideoTutorialSection({
                                         ¿Necesitas ayuda adicional?
                                     </h4>
                                     <p className="text-sm text-white/80">
-                                        Nuestro equipo de soporte está disponible 24/7
+                                        Nuestro equipo de soporte está disponible para ayudarte.
                                     </p>
                                 </div>
                                 <a

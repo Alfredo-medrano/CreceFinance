@@ -86,18 +86,22 @@ export default function PrestamosPage() {
                         title: "Financiamiento para Crecer",
                         subtitle: "Créditos",
                         description: "Brindamos financiamiento para impulsar el crecimiento económico de nuestros clientes con opciones adaptadas a cada necesidad.",
-                        imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop", // New keys/House
+                        imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Solicitar Crédito",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver tipos de crédito",
+                        secondaryCtaLink: "#productos"
                     },
                     {
                         id: 2,
                         title: "Impulsa tu Negocio",
                         subtitle: "Emprendimiento",
                         description: "Apoyamos a pequeños y grandes empresarios con capital de trabajo para llevar sus ideas al siguiente nivel.",
-                        imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1000&auto=format&fit=crop", // Shop/Business
+                        imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Créditos",
-                        ctaLink: "#productos"
+                        ctaLink: "#productos",
+                        secondaryCtaText: "Contactar asesor",
+                        secondaryCtaLink: "/contacto"
                     }
                 ]}
             />
@@ -122,7 +126,7 @@ export default function PrestamosPage() {
             </section>
 
             {/* Productos */}
-            <section className="py-20 bg-gray-50">
+            <section id="productos" className="py-20 bg-gray-50 scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
                         <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl mb-4">

@@ -61,18 +61,22 @@ export default function InversionesPage() {
                         title: "Inversiones Inteligentes",
                         subtitle: "Rentabilidad",
                         description: "Alternativas de inversión diseñadas para hacer crecer tu capital, con rendimientos atractivos y participación en los resultados.",
-                        imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1000&auto=format&fit=crop", // Stock/Chart
+                        imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Invertir ahora",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver productos de inversión",
+                        secondaryCtaLink: "#productos"
                     },
                     {
                         id: 2,
                         title: "Maximiza tu Capital",
                         subtitle: "Crecimiento",
                         description: "Forma parte del éxito de una institución sólida y obtén beneficios por tu confianza y compromiso.",
-                        imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop", // Business meeting
+                        imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Opciones",
-                        ctaLink: "#productos"
+                        ctaLink: "#productos",
+                        secondaryCtaText: "Hablar con asesor",
+                        secondaryCtaLink: "/contacto"
                     }
                 ]}
             />
@@ -97,7 +101,7 @@ export default function InversionesPage() {
             </section>
 
             {/* Productos */}
-            <section className="py-20 bg-gray-50">
+            <section id="productos" className="py-20 bg-gray-50 scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
                         <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl mb-4">

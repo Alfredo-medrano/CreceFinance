@@ -126,18 +126,22 @@ export default function NosotrosPage() {
                         title: "Conoce CRECE FINANCE",
                         subtitle: "Sobre Nosotros",
                         description: "Una sociedad cooperativa sólida y confiable, comprometida con el desarrollo financiero de nuestros socios y clientes.",
-                        imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop", // Meeting/Team
+                        imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Contáctanos",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver nuestra historia",
+                        secondaryCtaLink: "#historia"
                     },
                     {
                         id: 2,
                         title: "Valores que Inspiran",
                         subtitle: "Nuestra Esencia",
                         description: "Integridad, transparencia y responsabilidad son los pilares que sostienen cada una de nuestras acciones.",
-                        imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000&auto=format&fit=crop", // Handshake/People
+                        imageUrl: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Valores",
-                        ctaLink: "#valores"
+                        ctaLink: "#valores",
+                        secondaryCtaText: "Conoce nuestros servicios",
+                        secondaryCtaLink: "/servicios"
                     }
                 ]}
             />
@@ -145,7 +149,7 @@ export default function NosotrosPage() {
             {/* ============================================
           NUESTRA HISTORIA
           ============================================ */}
-            <section className="py-20 bg-white">
+            <section id="historia" className="py-20 bg-white scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <span className="inline-block mb-4 rounded-full bg-primary-blue/10 px-4 py-2 text-sm font-semibold text-primary-blue">
@@ -318,7 +322,7 @@ export default function NosotrosPage() {
             {/* ============================================
           VALORES INSTITUCIONALES
           ============================================ */}
-            <section className="py-20 bg-white">
+            <section id="valores" className="py-20 bg-white scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <span className="inline-block mb-4 rounded-full bg-primary-gold/10 px-4 py-2 text-sm font-semibold text-primary-gold">

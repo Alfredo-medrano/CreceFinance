@@ -93,18 +93,22 @@ export default function AhorrosPage() {
                         title: "Haz crecer tu dinero",
                         subtitle: "Ahorros",
                         description: "Diversas opciones de ahorro con tasas competitivas para asegurar el crecimiento financiero de tu familia.",
-                        imageUrl: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop", // Piggy bank/Savings
+                        imageUrl: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Abrir Cuenta",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver tipos de ahorro",
+                        secondaryCtaLink: "#productos"
                     },
                     {
                         id: 2,
                         title: "Planifica tu Futuro",
                         subtitle: "Seguridad Financiera",
                         description: "Empieza hoy a construir el mañana que sueñas con nuestras soluciones de ahorro programado.",
-                        imageUrl: "https://images.unsplash.com/photo-1565514020176-dbf2277cc168?q=80&w=1000&auto=format&fit=crop", // Family/Future
+                        imageUrl: "https://images.unsplash.com/photo-1565514020176-dbf2277cc168?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Planes",
-                        ctaLink: "#productos"
+                        ctaLink: "/ahorros/plazo-fijo",
+                        secondaryCtaText: "Contactar asesor",
+                        secondaryCtaLink: "/contacto"
                     }
                 ]}
             />
@@ -133,7 +137,7 @@ export default function AhorrosPage() {
             {/* ============================================
           PRODUCTOS - CARDS COMPACTAS
           ============================================ */}
-            <section className="py-20 bg-gray-50">
+            <section id="productos" className="py-20 bg-gray-50 scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
                         <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl mb-4">

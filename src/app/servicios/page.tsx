@@ -37,24 +37,28 @@ export default function ServiciosPage() {
                         title: "Soluciones Integrales",
                         subtitle: "Servicios",
                         description: "Complementamos nuestros productos financieros con servicios diseñados para facilitar tu día a día.",
-                        imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1000&auto=format&fit=crop", // Customer service
+                        imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Servicios",
-                        ctaLink: "#servicios"
+                        ctaLink: "#servicios",
+                        secondaryCtaText: "Contáctanos",
+                        secondaryCtaLink: "/contacto"
                     },
                     {
                         id: 2,
                         title: "Facilidad y Rapidez",
                         subtitle: "Tecnología",
                         description: "Realiza tus pagos, cobros y trámites de manera ágil y segura en nuestras agencias.",
-                        imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop", // Digital payment/Technology
+                        imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Contáctanos",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver servicios",
+                        secondaryCtaLink: "#servicios"
                     }
                 ]}
             />
 
             {/* Servicios Grid */}
-            <section className="py-20 bg-gray-50">
+            <section id="servicios" className="py-20 bg-gray-50 scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {/* Pago de Servicios Básicos (Punto Xpress) */}

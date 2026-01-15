@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { Button } from "./Button";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
@@ -14,6 +15,8 @@ interface CarouselSlide {
     imageUrl: string;
     ctaText?: string;
     ctaLink?: string;
+    secondaryCtaText?: string;
+    secondaryCtaLink?: string;
 }
 
 /**
@@ -30,6 +33,8 @@ const defaultSlides: CarouselSlide[] = [
         imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/LogoHorizontal_iohiqa.png",
         ctaText: "Solicitar Crédito",
         ctaLink: "/contacto",
+        secondaryCtaText: "Conoce nuestros servicios",
+        secondaryCtaLink: "/servicios",
     },
     {
         id: 2,
@@ -40,6 +45,8 @@ const defaultSlides: CarouselSlide[] = [
         imageUrl: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1920&q=80",
         ctaText: "Conocer más",
         ctaLink: "/ahorros/plazo-fijo",
+        secondaryCtaText: "Ver todos los ahorros",
+        secondaryCtaLink: "/ahorros",
     },
     {
         id: 3,
@@ -50,6 +57,8 @@ const defaultSlides: CarouselSlide[] = [
         imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767993424/se%C3%B1oraRiendo_fo7shy.webp",
         ctaText: "Solicitar ahora",
         ctaLink: "/prestamos/microcreditos",
+        secondaryCtaText: "Ver todos los créditos",
+        secondaryCtaLink: "/prestamos",
     },
     {
         id: 4,
@@ -60,6 +69,8 @@ const defaultSlides: CarouselSlide[] = [
         imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767993423/AhorroNavide%C3%B1o_twontb.webp",
         ctaText: "Empezar a ahorrar",
         ctaLink: "/ahorros/navideno",
+        secondaryCtaText: "Ver productos de ahorro",
+        secondaryCtaLink: "/ahorros",
     },
 ];
 
@@ -232,20 +243,24 @@ export function HeroCarousel({
                                                 : "opacity-0 translate-y-8"
                                         )}
                                     >
-                                        <Button
-                                            variant="primary"
-                                            size="lg"
-                                            className="button-shine shadow-lg shadow-primary-gold/30"
-                                        >
-                                            {slide.ctaText}
-                                        </Button>
-                                        <Button
-                                            variant="outline"
-                                            size="lg"
-                                            className="border-primary-gold/50 text-white hover:bg-primary-gold hover:text-primary-blue hover:border-primary-gold backdrop-blur-sm"
-                                        >
-                                            Conoce nuestros servicios
-                                        </Button>
+                                        <Link href={slide.ctaLink || "/contacto"}>
+                                            <Button
+                                                variant="primary"
+                                                size="lg"
+                                                className="button-shine shadow-lg shadow-primary-gold/30"
+                                            >
+                                                {slide.ctaText}
+                                            </Button>
+                                        </Link>
+                                        <Link href={slide.secondaryCtaLink || "/servicios"}>
+                                            <Button
+                                                variant="outline"
+                                                size="lg"
+                                                className="border-primary-gold/50 text-white hover:bg-primary-gold hover:text-primary-blue hover:border-primary-gold backdrop-blur-sm"
+                                            >
+                                                {slide.secondaryCtaText || "Conoce nuestros servicios"}
+                                            </Button>
+                                        </Link>
                                     </div>
                                 )}
                             </div>

@@ -69,24 +69,28 @@ export default function AgenciasPage() {
                         title: "Cerca de Ti",
                         subtitle: "Nuestras Agencias",
                         description: "Visítanos en cualquiera de nuestras sucursales y recibe atención personalizada para tus trámites financieros.",
-                        imageUrl: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop", // Office building/Lobby
+                        imageUrl: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Ver Ubicaciones",
-                        ctaLink: "#agencias"
+                        ctaLink: "#agencias",
+                        secondaryCtaText: "Contáctanos",
+                        secondaryCtaLink: "/contacto"
                     },
                     {
                         id: 2,
                         title: "Atención de Calidad",
                         subtitle: "Servicio al Cliente",
                         description: "Nuestro equipo está listo para asesorarte y brindarte las mejores soluciones financieras.",
-                        imageUrl: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1000&auto=format&fit=crop", // Modern office/Team
+                        imageUrl: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1000&auto=format&fit=crop",
                         ctaText: "Contáctanos",
-                        ctaLink: "/contacto"
+                        ctaLink: "/contacto",
+                        secondaryCtaText: "Ver ubicaciones",
+                        secondaryCtaLink: "#agencias"
                     }
                 ]}
             />
 
             {/* Agencias List */}
-            <section className="py-20 bg-gray-50">
+            <section id="agencias" className="py-20 bg-gray-50 scroll-mt-20">
                 <div className="container mx-auto px-6">
                     <div className="grid gap-8 lg:grid-cols-3">
                         {/* Columna Izquierda: Lista de Agencias */}
