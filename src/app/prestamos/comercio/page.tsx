@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { PageHero } from "@/components/ui/PageHero";
 import {
     ShoppingBag,
     ArrowRight,
-    ArrowLeft,
     CheckCircle2,
     Sparkles,
     Store,
@@ -15,39 +17,15 @@ export default function ComercioPage() {
     return (
         <>
             {/* Hero */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
-                    <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-primary-gold/15 blur-3xl" />
-                </div>
-
-                <div className="container relative mx-auto px-6 z-10">
-                    <Link href="/prestamos" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors">
-                        <ArrowLeft className="h-4 w-4" />
-                        Volver a Préstamos
-                    </Link>
-
-                    <div className="flex items-start gap-6">
-                        <div className="hidden md:flex h-20 w-20 items-center justify-center rounded-2xl bg-primary-gold/20 backdrop-blur">
-                            <ShoppingBag className="h-10 w-10 text-primary-gold" />
-                        </div>
-                        <div>
-                            <h1 className="font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl mb-4">
-                                Créditos de <span className="text-primary-gold">Comercio</span>
-                            </h1>
-                            <p className="text-xl text-white/80 max-w-2xl">
-                                Financiamiento ideal para comerciantes y empresarios que buscan
-                                expandir o fortalecer sus negocios.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0">
-                    <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none" className="w-full">
-                        <path d="M0 100L48 94C96 88 192 76 288 68C384 60 480 56 576 58C672 60 768 68 864 72C960 76 1056 76 1152 70C1248 64 1344 52 1392 46L1440 40V100H0Z" fill="white" />
-                    </svg>
-                </div>
-            </section>
+            <PageHero
+                title="Créditos de "
+                highlightText="Comercio"
+                description="Financiamiento ideal para comerciantes y empresarios que buscan expandir o fortalecer sus negocios."
+                icon={ShoppingBag}
+                backText="Volver a Préstamos"
+                backHref="/prestamos"
+                imageSlug="comercio"
+            />
 
             {/* Contenido */}
             <section className="py-16 bg-white">

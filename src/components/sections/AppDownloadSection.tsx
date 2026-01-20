@@ -78,28 +78,28 @@ export function AppDownloadSection() {
                             ))}
                         </div>
 
-                        {/* Botón de descarga */}
+                        {/* Botón de descarga con logo oficial de Google Play */}
                         <Link
                             href="https://play.google.com/store/apps/details?id=com.sstsoluciones.arisstoCrecefinanceProduccion2&pcampaignid=web_share"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-blue font-bold rounded-xl shadow-2xl shadow-black/20 hover:bg-primary-gold hover:text-white transition-all duration-300 group button-shine"
+                            className="inline-flex items-center gap-4 px-8 py-4 bg-black text-white font-bold rounded-xl shadow-2xl shadow-black/20 hover:bg-gray-900 transition-all duration-300 group border border-white/20"
                         >
-                            <Download className="w-6 h-6 group-hover:animate-bounce" />
-                            <div className="text-left">
-                                <span className="block text-xs opacity-70">Descargar en</span>
-                                <span className="block text-lg font-heading">Google Play</span>
-                            </div>
+                            {/* Logo oficial de Google Play con colores */}
                             <svg
-                                className="w-8 h-8 ml-2"
+                                className="w-10 h-10"
                                 viewBox="0 0 24 24"
-                                fill="currentColor"
+                                fill="none"
                             >
-                                <path d="M3.609 1.814c-.287.179-.48.498-.48.862v18.648c0 .364.193.683.48.862l.057.032 10.449-10.449v-.118L3.666 1.782l-.057.032z" />
-                                <path d="M17.574 15.306l-3.458-3.458v-.118l3.458-3.458.078.045 4.1 2.33c1.17.664 1.17 1.75 0 2.414l-4.1 2.33-.078.045z" />
-                                <path d="M17.652 15.261l-3.536-3.413L3.609 22.324c.385.404 1.023.428 1.439.186l12.604-7.249z" />
-                                <path d="M17.652 8.318L5.048 1.069c-.416-.242-1.054-.218-1.439.186l10.507 10.507 3.536-3.444z" />
+                                <path d="M3.609 1.814c-.287.179-.48.498-.48.862v18.648c0 .364.193.683.48.862l.057.032 10.449-10.449v-.118L3.666 1.782l-.057.032z" fill="#00D7FE" />
+                                <path d="M17.574 15.306l-3.458-3.458v-.118l3.458-3.458.078.045 4.1 2.33c1.17.664 1.17 1.75 0 2.414l-4.1 2.33-.078.045z" fill="#FFCE00" />
+                                <path d="M17.652 15.261l-3.536-3.413L3.609 22.324c.385.404 1.023.428 1.439.186l12.604-7.249z" fill="#FF3A44" />
+                                <path d="M17.652 8.318L5.048 1.069c-.416-.242-1.054-.218-1.439.186l10.507 10.507 3.536-3.444z" fill="#00F076" />
                             </svg>
+                            <div className="text-left">
+                                <span className="block text-xs text-white/70 uppercase tracking-wider">Disponible en</span>
+                                <span className="block text-xl font-heading">Google Play</span>
+                            </div>
                         </Link>
                     </div>
 

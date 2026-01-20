@@ -117,31 +117,46 @@ export default function InversionesPage() {
                             <Link
                                 key={producto.id}
                                 href={producto.href}
-                                className={`group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 ${producto.destacado ? "ring-2 ring-primary-gold" : ""
+                                className={`group relative overflow-hidden rounded-2xl bg-white p-8 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border border-gray-100 ${producto.destacado ? "border-primary-gold/30 bg-gradient-to-br from-white to-primary-gold/5" : ""
                                     }`}
                             >
+                                {/* Degradado de fondo animado */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-gold opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                                {/* Círculos decorativos */}
+                                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary-gold/20 blur-2xl transition-all duration-500 group-hover:bg-white/20 group-hover:scale-150" />
+                                <div className="absolute -left-10 -bottom-10 h-24 w-24 rounded-full bg-primary-blue/10 blur-2xl transition-all duration-500 group-hover:bg-primary-gold/20 group-hover:scale-150" />
+
+                                {/* Línea decorativa superior */}
+                                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-blue via-primary-gold to-primary-blue transform origin-left scale-x-0 group-hover:scale-x-100 transition-all duration-500" />
+
                                 {producto.destacado && (
-                                    <span className="absolute top-4 right-4 bg-primary-gold text-primary-blue text-xs font-bold px-3 py-1 rounded-full">
+                                    <span className="absolute top-4 right-4 z-20 bg-primary-gold text-primary-blue text-xs font-bold px-3 py-1 rounded-full animate-bounce">
                                         Recomendado
                                     </span>
                                 )}
 
-                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-primary-blue to-primary-blue-600 text-white mb-6 group-hover:scale-110 transition-transform">
-                                    <producto.icon className="h-8 w-8" />
+                                <div className="relative z-10">
+                                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-6 transition-all duration-500 ${producto.destacado
+                                        ? "bg-primary-gold text-primary-blue shadow-lg shadow-primary-gold/30"
+                                        : "bg-gradient-to-br from-primary-blue to-primary-blue-600 text-white group-hover:bg-white/20 group-hover:shadow-lg"
+                                        }`}>
+                                        <producto.icon className="h-8 w-8 transition-transform duration-500 group-hover:scale-110" />
+                                    </div>
+
+                                    <h3 className="font-heading text-2xl font-bold text-primary-blue mb-3 transition-colors duration-300 group-hover:text-white">
+                                        {producto.title}
+                                    </h3>
+
+                                    <p className="text-gray-600 mb-6 transition-colors duration-300 group-hover:text-white/90">
+                                        {producto.description}
+                                    </p>
+
+                                    <span className="inline-flex items-center gap-2 text-primary-gold font-semibold group-hover:gap-3 transition-all group-hover:text-white">
+                                        Más información
+                                        <ArrowRight className="h-5 w-5" />
+                                    </span>
                                 </div>
-
-                                <h3 className="font-heading text-2xl font-bold text-primary-blue mb-3">
-                                    {producto.title}
-                                </h3>
-
-                                <p className="text-gray-600 mb-6">
-                                    {producto.description}
-                                </p>
-
-                                <span className="inline-flex items-center gap-2 text-primary-gold font-semibold group-hover:gap-3 transition-all">
-                                    Más información
-                                    <ArrowRight className="h-5 w-5" />
-                                </span>
                             </Link>
                         ))}
                     </div>

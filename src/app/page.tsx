@@ -27,7 +27,7 @@ const features = [
   {
     icon: Award,
     title: "Experiencia Comprobada",
-    description: "Años de trayectoria respaldando el crecimiento financiero de nuestros clientes.",
+    description: "La experiencia conjunta de nuestros socios garantiza respaldo y confianza financiera.",
   },
   {
     icon: Heart,
@@ -92,17 +92,10 @@ export default function Home() {
                   <h3 className="mb-4 font-heading text-4xl font-bold md:text-5xl">
                     200+
                   </h3>
-                  <p className="text-xl text-white/90">Años de experiencia combinada</p>
-                  <div className="mt-8 grid w-full grid-cols-2 gap-4">
-                    <div className="rounded-xl bg-white/10 p-4">
-                      <p className="font-heading text-2xl font-bold">24</p>
-                      <p className="text-sm text-white/80">Socios Fundadores</p>
-                    </div>
-                    <div className="rounded-xl bg-white/10 p-4">
-                      <p className="font-heading text-2xl font-bold">3</p>
-                      <p className="text-sm text-white/80">Agencias</p>
-                    </div>
-                  </div>
+                  <p className="text-xl text-white/90 mb-6">Años de experiencia combinada</p>
+                  <p className="text-base text-white/80 leading-relaxed">
+                    200+ años de experiencia combinada de nuestros fundadores reflejan compromiso, conocimiento y respaldo financiero a nuestros socios.
+                  </p>
                 </div>
               </div>
               {/* Efectos decorativos */}
@@ -118,39 +111,6 @@ export default function Home() {
 
       {/* Tutorial en video */}
       <VideoTutorialSection videoId="dQw4w9WgXcQ" />
-
-      {/* Llamado a la acción final */}
-      <section className="relative overflow-hidden bg-primary-blue py-20">
-        {/* Elementos decorativos */}
-        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary-gold/20 blur-3xl" />
-        <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-primary-gold/10 blur-3xl" />
-
-        <div className="container relative mx-auto px-6 text-center">
-          <h2 className="mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-            ¿Listo para hacer crecer tus finanzas?
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
-            Únete a miles de salvadoreños que ya confían en CRECE FINANCE. Da el
-            primer paso hacia tu libertad financiera hoy.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/contacto">
-              <Button variant="primary" size="lg">
-                Solicitar Crédito Ahora
-              </Button>
-            </Link>
-            <Link href="/contacto">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary-blue"
-              >
-                Contáctanos
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

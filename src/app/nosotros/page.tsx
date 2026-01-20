@@ -44,7 +44,7 @@ const timelineEvents = [
     {
         date: "15 de diciembre de 2023",
         title: "Primera Agencia",
-        description: "Inauguración de la primera agencia en San Miguel y apertura oficial al público, iniciando operaciones con un equipo de 10 colaboradores.",
+        description: "Inauguración de la primera agencia en San Miguel y apertura oficial al público, iniciando operaciones.",
         icon: Building2,
         location: "San Miguel",
     },
@@ -105,7 +105,6 @@ const valores = [
 // ============================================
 const stats = [
     { number: "3+", label: "Años de experiencia" },
-    { number: "24", label: "Socios fundadores" },
     { number: "30+", label: "Familias generando empleo" },
     { number: "3", label: "Agencias en operación" },
 ];
@@ -158,8 +157,8 @@ export default function NosotrosPage() {
                         <h2 className="font-heading text-3xl font-bold text-primary-blue md:text-4xl lg:text-5xl mb-6">
                             Una visión que se convirtió en realidad
                         </h2>
-                        <p className="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed">
-                            CRECE FINANCE nace de la visión de cinco profesionales que, tras una amplia trayectoria
+                        <p className="mx-auto max-w-3xl text-lg text-gray-600 leading-relaxed text-justify">
+                            CRECE FINANCE nace de la visión de profesionales que, tras una amplia trayectoria
                             trabajando, dirigiendo y fortaleciendo diversas entidades financieras, identificaron
                             la necesidad de crear una institución sólida, cercana y confiable.
                         </p>
@@ -169,36 +168,36 @@ export default function NosotrosPage() {
                     <div className="max-w-4xl mx-auto mb-20">
                         <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-lg">
                             <div className="prose prose-lg max-w-none text-gray-600">
-                                <p className="lead text-xl leading-relaxed mb-6">
-                                    <strong className="text-primary-blue">Crece Finance, Sociedad Cooperativa de Responsabilidad Limitada de Capital Variable</strong> (abreviada como Crece Finance, Soc. Coop. de R. L. de C. V.), nace de la visión de cinco
+                                <p className="lead text-xl leading-relaxed mb-6 text-justify">
+                                    <strong className="text-primary-blue">Crece Finance, Sociedad Cooperativa de Responsabilidad Limitada de Capital Variable</strong> (abreviada como Crece Finance, Soc. Coop. de R. L. de C. V.), nace de la visión de
                                     profesionales que, tras una amplia trayectoria trabajando, dirigiendo y fortaleciendo diversas
                                     entidades financieras, identificaron la necesidad de crear una institución sólida, cercana y
                                     confiable, orientada a brindar soluciones financieras accesibles, oportunas y transparentes,
                                     especialmente para quienes más lo requieren.
                                 </p>
-                                <p className="mb-6">
+                                <p className="mb-6 text-justify">
                                     Conscientes de que una institución fuerte se construye con personas y liderazgo, desde sus
                                     primeras etapas se incorporaron profesionales con amplia experiencia en el sector financiero,
                                     provenientes de distintas entidades del país. Esta integración permitió conformar un <strong className="text-primary-blue">equipo
-                                        multidisciplinario con más de 3 años de experiencia</strong> en
+                                        multidisciplinario con más de 200 años de experiencia</strong> en
                                     el sistema financiero salvadoreño, caracterizado por su honestidad, integridad y
                                     profesionalismo, valores que hoy distinguen a Crece Finance.
                                 </p>
-                                <p className="mb-6">
-                                    Como resultado de este proceso, la institución cuenta con <strong className="text-primary-gold">24 accionistas fundadores e inversionistas</strong>,
+                                <p className="mb-6 text-justify">
+                                    Como resultado de este proceso, la institución cuenta con <strong className="text-primary-gold">accionistas fundadores e inversionistas</strong>,
                                     quienes asumieron el compromiso de aportar capital, experiencia y conocimiento, así como la
                                     responsabilidad ética de resguardar la reputación, la transparencia y la confianza de la
                                     institución, sentando las bases de una organización con visión de largo plazo, enfocada en la
                                     sostenibilidad y el crecimiento responsable.
                                 </p>
-                                <p>
+                                <p className="text-justify">
                                     Actualmente, <strong className="text-primary-blue">Crece Finance genera empleo directo para más de
                                         treinta (30) familias</strong>, aportando al desarrollo económico local y reafirmando su misión
                                     de generar oportunidades, impulsar el crecimiento económico y mejorar la calidad de vida de sus colaboradores, socios
                                     y usuarios.
                                 </p>
-                                <p className="mt-6 border-l-4 border-primary-gold pl-6 italic text-gray-500">
-                                    "Hoy, Crece Finance continúa avanzando con paso firme, consolidándose como una
+                                <p className="mt-6 border-l-4 border-primary-gold pl-6 italic text-gray-500 text-justify">
+                                    "Hoy, Crece Finance continúa expandiéndose con paso firme, consolidándose como una
                                     institución financiera confiable, comprometida con la transparencia, la responsabilidad y el
                                     desarrollo sostenible, bajo la convicción de que el crecimiento financiero debe ir siempre de
                                     la mano con el bienestar de las personas y las comunidades."
@@ -258,23 +257,6 @@ export default function NosotrosPage() {
                 </div>
             </section>
 
-            {/* ============================================
-          ESTADÍSTICAS
-          ============================================ */}
-            <section className="py-16 bg-gradient-to-r from-primary-blue to-primary-blue-600">
-                <div className="container mx-auto px-6">
-                    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {stats.map((stat) => (
-                            <div key={stat.label} className="text-center">
-                                <p className="font-heading text-5xl font-bold text-primary-gold mb-2">
-                                    {stat.number}
-                                </p>
-                                <p className="text-white/80">{stat.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* ============================================
           MISIÓN Y VISIÓN
@@ -299,16 +281,16 @@ export default function NosotrosPage() {
                         </div>
 
                         {/* Visión */}
-                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-gold to-primary-gold-500 p-10 hover:shadow-2xl transition-shadow">
-                            <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-primary-blue/20 blur-2xl transition-all duration-500 group-hover:scale-150" />
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-blue to-primary-blue-600 p-10 text-white hover:shadow-2xl transition-shadow">
+                            <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-primary-gold/20 blur-2xl transition-all duration-500 group-hover:scale-150" />
                             <div className="relative">
-                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-blue/20">
-                                    <Eye className="h-8 w-8 text-primary-blue" />
+                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-gold/20">
+                                    <Eye className="h-8 w-8 text-primary-gold" />
                                 </div>
-                                <h2 className="mb-4 font-heading text-3xl font-bold text-primary-blue">
+                                <h2 className="mb-4 font-heading text-3xl font-bold">
                                     Nuestra Visión
                                 </h2>
-                                <p className="text-lg text-primary-blue/90 leading-relaxed">
+                                <p className="text-lg text-white/90 leading-relaxed">
                                     &ldquo;Ser una entidad líder en servicios financieros, comprometida
                                     con el crecimiento y desarrollo de nuestros colaboradores, socios
                                     y clientes.&rdquo;
@@ -333,7 +315,7 @@ export default function NosotrosPage() {
                         </h2>
                         <p className="mx-auto max-w-2xl text-gray-600">
                             En CRECE FINANCE nos guiamos por principios fundamentales que rigen nuestra
-                            forma de operar y relacionarnos con nuestros clientes y colaboradores.
+                            forma de operar y relacionarnos con nuestros Colaboradores, socios y usuarios.
                         </p>
                     </div>
 
@@ -364,46 +346,6 @@ export default function NosotrosPage() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ============================================
-          CTA FINAL
-          ============================================ */}
-            <section className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-gold/10 rounded-full blur-3xl" />
-                </div>
-
-                <div className="container relative mx-auto px-6 text-center z-10">
-                    <Sparkles className="h-12 w-12 text-primary-gold mx-auto mb-6" />
-                    <h2 className="mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-                        ¿Listo para ser parte de CRECE FINANCE?
-                    </h2>
-                    <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">
-                        Únete a nuestra familia de socios y descubre todas las ventajas
-                        de pertenecer a una cooperativa sólida y confiable.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="/contacto">
-                            <Button
-                                variant="primary"
-                                size="lg"
-                                rightIcon={<ArrowRight className="h-5 w-5" />}
-                            >
-                                Contáctanos Ahora
-                            </Button>
-                        </Link>
-                        <Link href="/servicios">
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="border-white/50 text-white hover:bg-white hover:text-primary-blue"
-                            >
-                                Ver Servicios
-                            </Button>
-                        </Link>
                     </div>
                 </div>
             </section>

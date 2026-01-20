@@ -13,12 +13,12 @@ import { Sparkles, ArrowRight, ChevronDown } from "lucide-react";
 // ============================================
 const HERO_CONFIG = {
     // Imagen de fondo principal
-    backgroundImage: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767993424/se%C3%B1oraRiendo_fo7shy.webp",
+    backgroundImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80",
 
     // Textos del hero
     subtitle: "Tu aliado financiero",
-    title: "Bienvenido a CRECE FINANCE",
-    description: "Somos una sociedad cooperativa sólida y confiable que brinda servicios financieros oportunos y accesibles para nuestros socios y clientes.",
+    title: "BIENVENIDO A CRECE FINANCE",
+    description: "Crecer contigo es nuestra mayor inversión, construyendo juntos un futuro financiero sólido",
 
     // Botones
     ctaPrimary: "Solicitar Crédito",
@@ -64,12 +64,7 @@ export function HeroStatic({
                 />
             </div>
 
-            {/* ============================================
-          CAPA 2: DEGRADADO AZUL
-          ============================================ */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/85 to-primary-blue/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-blue via-transparent to-primary-blue/50" />
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-blue/40 to-transparent" />
+
 
             {/* ============================================
           CAPA 3: LÍNEAS DORADAS DECORATIVAS
@@ -149,14 +144,14 @@ export function HeroStatic({
                     <div className="max-w-2xl lg:max-w-3xl">
                         {/* Badge */}
                         <div className="animate-fade-in-up">
-                            <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 backdrop-blur-md px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30 shadow-lg shadow-primary-gold/10">
+                            <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold px-5 py-2.5 text-sm font-bold text-primary-blue shadow-lg">
                                 <Sparkles className="h-4 w-4" />
                                 {subtitle}
                             </span>
                         </div>
 
                         {/* Título */}
-                        <h1 className="mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] animate-fade-in-up animate-delay-100">
+                        <h1 className="mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] animate-fade-in-up animate-delay-100 [text-shadow:_0_2px_4px_rgba(0,0,0,0.8),_0_4px_8px_rgba(0,0,0,0.6),_0_8px_16px_rgba(0,0,0,0.4)]">
                             {title.split(" ").map((word, i) => (
                                 <span key={i}>
                                     {word === "CRECE" || word === "FINANCE" ? (
@@ -169,7 +164,7 @@ export function HeroStatic({
                         </h1>
 
                         {/* Descripción */}
-                        <p className="mb-10 text-lg text-white/85 md:text-xl lg:text-2xl leading-relaxed max-w-xl animate-fade-in-up animate-delay-200">
+                        <p className="mb-8 text-base text-white md:text-lg lg:text-xl leading-relaxed max-w-xl animate-fade-in-up animate-delay-200 [text-shadow:_0_1px_2px_rgba(0,0,0,0.8),_0_2px_4px_rgba(0,0,0,0.6)]">
                             {description}
                         </p>
 

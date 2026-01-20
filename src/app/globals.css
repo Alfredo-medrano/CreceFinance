@@ -233,6 +233,50 @@
   }
 }
 
+/* 3D Parallax Animations */
+@keyframes parallax3D {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.05);
+  }
+  25% {
+    transform: perspective(1000px) rotateY(1deg) rotateX(-0.5deg) scale(1.06);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(-0.5deg) rotateX(0.5deg) scale(1.07);
+  }
+  75% {
+    transform: perspective(1000px) rotateY(-1deg) rotateX(-0.5deg) scale(1.06);
+  }
+}
+
+@keyframes float3DText {
+  0%, 100% {
+    transform: translateZ(0) translateY(0);
+    text-shadow: 
+      1px 1px 0 rgba(0,48,87,0.8),
+      2px 2px 0 rgba(0,48,87,0.6),
+      3px 3px 0 rgba(0,48,87,0.4),
+      4px 4px 8px rgba(0,0,0,0.5);
+  }
+  50% {
+    transform: translateZ(20px) translateY(-5px);
+    text-shadow: 
+      2px 2px 0 rgba(0,48,87,0.8),
+      4px 4px 0 rgba(0,48,87,0.6),
+      6px 6px 0 rgba(0,48,87,0.4),
+      8px 8px 16px rgba(0,0,0,0.5);
+  }
+}
+
+@keyframes subtleZoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
 /* ======================================
    Global Styles
    ====================================== */
@@ -322,6 +366,20 @@ body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+.animate-parallax-3d {
+  animation: parallax3D 15s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-float-3d-text {
+  animation: float3DText 4s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-subtle-zoom {
+  animation: subtleZoom 8s ease-in-out infinite;
 }
 
 .animate-pulse-glow {

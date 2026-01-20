@@ -116,10 +116,10 @@ export function ServicesSection() {
                         Nuestros Servicios
                     </span>
                     <h2 className="mb-4 font-heading text-3xl font-bold text-primary-blue md:text-4xl lg:text-5xl">
-                        Soluciones Financieras a tu Medida
+                        Servicios Financieros para tu crecimiento
                     </h2>
                     <p className="mx-auto max-w-2xl text-lg text-gray-600">
-                        Descubre nuestra amplia gama de productos en ahorros, inversiones y
+                        Descubre nuestra gama de productos en ahorros, inversiones y
                         préstamos diseñados para impulsar tu crecimiento económico.
                     </p>
                 </div>

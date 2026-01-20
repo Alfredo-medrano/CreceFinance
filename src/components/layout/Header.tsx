@@ -131,7 +131,7 @@ export function Header() {
                     "fixed left-0 right-0 top-0 z-50 transition-all duration-500",
                     isScrolled
                         ? "bg-white shadow-lg shadow-gray-200/50"
-                        : "bg-gradient-to-b from-black/30 to-transparent"
+                        : "bg-gradient-to-b from-black/60 via-black/30 to-transparent"
                 )}
             >
                 <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,8 +170,8 @@ export function Header() {
                                                         ? "bg-primary-blue text-white shadow-md shadow-primary-blue/30"
                                                         : "text-gray-700 hover:bg-gray-100"
                                                     : active
-                                                        ? "bg-white/20 text-white backdrop-blur-sm"
-                                                        : "text-white/90 hover:text-white hover:bg-white/10"
+                                                        ? "bg-white/20 text-white backdrop-blur-sm [text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]"
+                                                        : "text-white hover:text-white hover:bg-white/10 [text-shadow:_0_1px_3px_rgb(0_0_0_/_60%)]"
                                             )}
                                         >
                                             {item.label}
@@ -240,7 +240,7 @@ export function Header() {
                                     ? "bg-gray-100 text-gray-700"
                                     : isScrolled
                                         ? "text-gray-700 hover:bg-gray-100"
-                                        : "text-white hover:bg-white/10"
+                                        : "text-white hover:bg-white/10 [filter:_drop-shadow(0_1px_2px_rgb(0_0_0_/_60%))]"
                             )}
                             aria-label="Toggle menu"
                         >

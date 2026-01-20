@@ -26,11 +26,11 @@ interface CarouselSlide {
 const defaultSlides: CarouselSlide[] = [
     {
         id: 1,
-        title: "Bienvenido a CRECE FINANCE",
+        title: "BIENVENIDO A CRECE FINANCE",
         subtitle: "Tu aliado financiero",
         description:
-            "Somos una sociedad cooperativa sólida y confiable que brinda servicios financieros oportunos y accesibles.",
-        imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767991987/LogoHorizontal_iohiqa.png",
+            "Crecer contigo es nuestra mayor inversión, construyendo juntos un futuro financiero sólido.",
+        imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1768881530/EquipoCrece_lacdoi.jpg",
         ctaText: "Solicitar Crédito",
         ctaLink: "/contacto",
         secondaryCtaText: "Conoce nuestros servicios",
@@ -54,7 +54,7 @@ const defaultSlides: CarouselSlide[] = [
         subtitle: "Impulsa tu negocio",
         description:
             "Financiamiento rápido y accesible para emprendedores y pequeños negocios que quieren crecer.",
-        imageUrl: "https://res.cloudinary.com/dm1fivmmh/image/upload/v1767993424/se%C3%B1oraRiendo_fo7shy.webp",
+        imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80",
         ctaText: "Solicitar ahora",
         ctaLink: "/prestamos/microcreditos",
         secondaryCtaText: "Ver todos los créditos",
@@ -161,23 +161,22 @@ export function HeroCarousel({
                             : "opacity-0 z-0"
                     )}
                 >
-                    {/* Capa de imagen de fondo */}
-                    <div className="absolute inset-0 overflow-hidden">
+                    {/* Capa de imagen de fondo con efecto 3D */}
+                    <div className="absolute inset-0 overflow-hidden" style={{ perspective: '1000px' }}>
                         <div className="absolute inset-0 bg-primary-blue" />
                         <Image
                             src={slide.imageUrl}
                             alt={slide.title}
                             fill
                             sizes="100vw"
-                            className="object-cover object-center"
+                            className={cn(
+                                "object-cover object-center transition-transform duration-1000",
+                                index === currentSlide && "animate-parallax-3d"
+                            )}
                             priority={index === 0}
                             unoptimized
                             loading={index === 0 ? "eager" : "lazy"}
                         />
-
-                        {/* Capas de degradado para legibilidad */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/75 to-primary-blue/40 z-10" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary-blue/70 via-transparent to-primary-blue/30 z-10" />
                     </div>
 
                     {/* Línea dorada animada */}
@@ -203,7 +202,7 @@ export function HeroCarousel({
                                             : "opacity-0 translate-y-8"
                                     )}
                                 >
-                                    <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold/20 backdrop-blur-md px-5 py-2.5 text-sm font-semibold text-primary-gold border border-primary-gold/30">
+                                    <span className="inline-flex items-center gap-2 mb-6 rounded-full bg-primary-gold px-5 py-2.5 text-sm font-bold text-primary-blue shadow-lg">
                                         <Sparkles className="h-4 w-4" />
                                         {slide.subtitle}
                                     </span>
@@ -212,7 +211,8 @@ export function HeroCarousel({
                                 {/* Título principal */}
                                 <h1
                                     className={cn(
-                                        "mb-6 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] transition-all duration-700 delay-200",
+                                        "mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] transition-all duration-700 delay-200",
+                                        "[text-shadow:_0_2px_4px_rgba(0,0,0,0.8),_0_4px_8px_rgba(0,0,0,0.6),_0_8px_16px_rgba(0,0,0,0.4)]",
                                         index === currentSlide
                                             ? "opacity-100 translate-y-0"
                                             : "opacity-0 translate-y-8"
@@ -224,7 +224,8 @@ export function HeroCarousel({
                                 {/* Descripción */}
                                 <p
                                     className={cn(
-                                        "mb-10 text-lg text-white/85 md:text-xl lg:text-2xl leading-relaxed max-w-xl transition-all duration-700 delay-300",
+                                        "mb-8 text-base text-white md:text-lg lg:text-xl leading-relaxed max-w-xl transition-all duration-700 delay-300",
+                                        "[text-shadow:_0_1px_2px_rgba(0,0,0,0.8),_0_2px_4px_rgba(0,0,0,0.6)]",
                                         index === currentSlide
                                             ? "opacity-100 translate-y-0"
                                             : "opacity-0 translate-y-8"
