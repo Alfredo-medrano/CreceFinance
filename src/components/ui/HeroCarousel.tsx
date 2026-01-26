@@ -42,7 +42,7 @@ const defaultSlides: CarouselSlide[] = [
         subtitle: "Haz crecer tu dinero",
         description:
             "Las mejores tasas de interés del mercado para hacer crecer tus ahorros de forma segura y estable.",
-        imageUrl: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1920&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=1920&q=80",
         ctaText: "Conocer más",
         ctaLink: "/ahorros/plazo-fijo",
         secondaryCtaText: "Ver todos los ahorros",
@@ -54,7 +54,7 @@ const defaultSlides: CarouselSlide[] = [
         subtitle: "Impulsa tu negocio",
         description:
             "Financiamiento rápido y accesible para emprendedores y pequeños negocios que quieren crecer.",
-        imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80",
         ctaText: "Solicitar ahora",
         ctaLink: "/prestamos/microcreditos",
         secondaryCtaText: "Ver todos los créditos",
@@ -211,7 +211,7 @@ export function HeroCarousel({
                                 {/* Título principal */}
                                 <h1
                                     className={cn(
-                                        "mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] transition-all duration-700 delay-200",
+                                        "mb-4 font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl leading-[1.1] transition-all duration-700 delay-200 whitespace-nowrap",
                                         "[text-shadow:_0_2px_4px_rgba(0,0,0,0.8),_0_4px_8px_rgba(0,0,0,0.6),_0_8px_16px_rgba(0,0,0,0.4)]",
                                         index === currentSlide
                                             ? "opacity-100 translate-y-0"
@@ -248,7 +248,7 @@ export function HeroCarousel({
                                             <Button
                                                 variant="primary"
                                                 size="lg"
-                                                className="button-shine shadow-lg shadow-primary-gold/30"
+                                                className="button-shine shadow-xl shadow-primary-gold/40 border-2 border-primary-gold"
                                             >
                                                 {slide.ctaText}
                                             </Button>
@@ -257,7 +257,7 @@ export function HeroCarousel({
                                             <Button
                                                 variant="outline"
                                                 size="lg"
-                                                className="border-primary-gold/50 text-white hover:bg-primary-gold hover:text-primary-blue hover:border-primary-gold backdrop-blur-sm"
+                                                className="!bg-white !border-2 !border-white !text-primary-blue font-bold hover:!bg-primary-gold hover:!border-primary-gold hover:!text-primary-blue transition-all duration-300 shadow-lg"
                                             >
                                                 {slide.secondaryCtaText || "Conoce nuestros servicios"}
                                             </Button>

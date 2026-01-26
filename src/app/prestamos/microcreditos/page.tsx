@@ -12,6 +12,7 @@ import {
     TrendingUp,
     ShieldCheck
 } from "lucide-react";
+import { MICROCREDITOS_BENEFITS } from "@/constants/products";
 
 export default function MicrocreditosPage() {
     return (
@@ -40,7 +41,7 @@ export default function MicrocreditosPage() {
                                 impulsar sus negocios.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Con requisitos mínimos y procesos ágiles, te ayudamos a obtener el capital que
+                                Con procesos ágiles, te ayudamos a obtener el capital que
                                 necesitas para hacer crecer tu emprendimiento.
                             </p>
 
@@ -48,14 +49,7 @@ export default function MicrocreditosPage() {
                                 Beneficios
                             </h3>
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
-                                {[
-                                    "Aprobación rápida en 24-48 horas",
-                                    "Requisitos mínimos",
-                                    "Montos desde $100 hasta $5,000",
-                                    "Plazos flexibles de pago",
-                                    "Sin necesidad de garantía",
-                                    "Asesoría personalizada",
-                                ].map((item) => (
+                                {MICROCREDITOS_BENEFITS.map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-700">{item}</span>
@@ -87,23 +81,8 @@ export default function MicrocreditosPage() {
                             <div className="sticky top-32 rounded-2xl bg-primary-blue/5 p-6 border border-primary-blue/10">
                                 <div className="text-center mb-6">
                                     <Briefcase className="h-10 w-10 text-primary-gold mx-auto mb-3" />
-                                    <p className="text-sm text-gray-500">Monto disponible</p>
-                                    <p className="text-2xl font-bold text-primary-blue">$100 - $5,000</p>
-                                </div>
-
-                                <div className="space-y-4 mb-6">
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Aprobación</span>
-                                        <span className="font-semibold text-primary-gold">24-48 horas</span>
-                                    </div>
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Plazo</span>
-                                        <span className="font-semibold text-primary-blue">Hasta 24 meses</span>
-                                    </div>
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Garantía</span>
-                                        <span className="font-semibold text-primary-gold">No requerida</span>
-                                    </div>
+                                    <p className="text-sm text-gray-500">Microcréditos</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Para emprendedores</p>
                                 </div>
 
                                 <Link href="/contacto">

@@ -33,7 +33,7 @@ const agencias = [
         telefonoLink: "26607300",
         // Dirección exacta: CRECE FINANCE de R.L., 2A Calle Poniente, San Miguel
         mapUrl: "https://maps.google.com/maps?q=CRECE%20FINANCE%20de%20R.L.%2C%202A%20Calle%20Poniente%2C%20San%20Miguel&t=&z=17&ie=UTF8&iwloc=&output=embed",
-        imagen: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+        imagen: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1920&auto=format&fit=crop"
     },
     {
         id: "la-union",
@@ -43,7 +43,7 @@ const agencias = [
         telefonoLink: "26413400",
         // Plus Code: 85P5+RC5 Crece Finance, Agencia La Union, La Unión
         mapUrl: "https://maps.google.com/maps?q=85P5%2BRC5%20Crece%20Finance%2C%20Agencia%20La%20Union%2C%20La%20Uni%C3%B3n&t=&z=17&ie=UTF8&iwloc=&output=embed",
-        imagen: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
+        imagen: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1920&auto=format&fit=crop"
     },
     {
         id: "santa-rosa",
@@ -53,7 +53,7 @@ const agencias = [
         telefonoLink: "26080530",
         // Dirección exacta: 8ª Avenida Sur, frente al Mercado Municipal, Santa Rosa de Lima, La Unión
         mapUrl: "https://maps.google.com/maps?q=8%C2%AA%20Avenida%20Sur%2C%20frente%20al%20Mercado%20Municipal%2C%20Santa%20Rosa%20de%20Lima%2C%20La%20Uni%C3%B3n&t=&z=17&ie=UTF8&iwloc=&output=embed",
-        imagen: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop"
+        imagen: "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?q=80&w=1920&auto=format&fit=crop"
     }
 ];
 
@@ -69,7 +69,7 @@ export default function AgenciasPage() {
                         title: "Cerca de Ti",
                         subtitle: "Nuestras Agencias",
                         description: "Visítanos en cualquiera de nuestras sucursales y recibe atención personalizada para tus trámites financieros.",
-                        imageUrl: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop",
+                        imageUrl: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1920&auto=format&fit=crop",
                         ctaText: "Ver Ubicaciones",
                         ctaLink: "#agencias",
                         secondaryCtaText: "Contáctanos",
@@ -80,7 +80,7 @@ export default function AgenciasPage() {
                         title: "Atención de Calidad",
                         subtitle: "Servicio al Cliente",
                         description: "Nuestro equipo está listo para asesorarte y brindarte las mejores soluciones financieras.",
-                        imageUrl: "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?q=80&w=1000&auto=format&fit=crop",
+                        imageUrl: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1920&auto=format&fit=crop",
                         ctaText: "Contáctanos",
                         ctaLink: "/contacto",
                         secondaryCtaText: "Ver ubicaciones",

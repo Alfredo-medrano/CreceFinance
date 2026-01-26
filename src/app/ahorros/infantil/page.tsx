@@ -144,7 +144,7 @@ export default function AhorroInfantilPage() {
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Monto mínimo</span>
-                                        <span className="font-semibold text-primary-blue">$1.00</span>
+                                        <span className="font-semibold text-primary-blue">$5.00</span>
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Titular</span>

@@ -13,9 +13,9 @@ import {
 import { HeroCarousel } from "@/components/ui/HeroCarousel";
 
 export const metadata: Metadata = {
-    title: "Inversiones | CRECE FINANCE - Acciones Preferidas y Plus",
-    description: "Invierte tu dinero con CRECE FINANCE. Acciones Preferidas y Acciones Preferidas Plus con dividendos atractivos y rendimientos competitivos.",
-    keywords: ["inversiones El Salvador", "acciones preferidas", "dividendos", "rendimientos", "invertir dinero", "CRECE FINANCE"],
+    title: "Inversiones | CRECE FINANCE - Acciones Preferentes y Plus",
+    description: "Invierte tu dinero con CRECE FINANCE. Acciones Preferentes y Acciones Preferentes Plus con dividendos atractivos y rendimientos competitivos.",
+    keywords: ["inversiones El Salvador", "acciones preferentes", "dividendos", "rendimientos", "invertir dinero", "CRECE FINANCE"],
     openGraph: {
         title: "Productos de Inversión | CRECE FINANCE",
         description: "Maximiza tu capital con nuestras opciones de inversión. Dividendos atractivos y rendimientos competitivos.",
@@ -28,14 +28,14 @@ const productosInversion = [
     {
         id: "acciones-preferidas",
         icon: Award,
-        title: "Acciones Preferidas",
+        title: "Acciones Preferentes",
         description: "Diseñadas para inversionistas que buscan rendimientos fijos y atractivos, a través del pago periódico de dividendos. Permiten participar en el crecimiento de Crece Finance.",
         href: "/inversiones/acciones-preferidas",
     },
     {
         id: "acciones-preferidas-plus",
         icon: TrendingUp,
-        title: "Acciones Preferidas Plus",
+        title: "Acciones Preferentes Plus",
         description: "Alternativa dirigida a quienes buscan mayor rentabilidad, ofreciendo dividendos competitivos y condiciones preferenciales. Para maximizar el crecimiento de su capital.",
         href: "/inversiones/acciones-preferidas-plus",
         destacado: true,
@@ -60,8 +60,8 @@ export default function InversionesPage() {
                         id: 1,
                         title: "Inversiones Inteligentes",
                         subtitle: "Rentabilidad",
-                        description: "Alternativas de inversión diseñadas para hacer crecer tu capital, con rendimientos atractivos y participación en los resultados.",
-                        imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1000&auto=format&fit=crop",
+                        description: "Decisiones de inversión que transforman tu capital en oportunidades de crecimiento.",
+                        imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
                         ctaText: "Invertir ahora",
                         ctaLink: "/contacto",
                         secondaryCtaText: "Ver productos de inversión",
@@ -72,7 +72,7 @@ export default function InversionesPage() {
                         title: "Maximiza tu Capital",
                         subtitle: "Crecimiento",
                         description: "Forma parte del éxito de una institución sólida y obtén beneficios por tu confianza y compromiso.",
-                        imageUrl: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop",
+                        imageUrl: "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=1920&auto=format&fit=crop",
                         ctaText: "Ver Opciones",
                         ctaLink: "#productos",
                         secondaryCtaText: "Hablar con asesor",

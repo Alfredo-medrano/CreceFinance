@@ -9,9 +9,10 @@ import {
     CheckCircle2,
     Sparkles,
     Hammer,
-    Building2,
-    ShieldCheck
+    ShieldCheck,
+    Wrench
 } from "lucide-react";
+import { VIVIENDA_BENEFITS } from "@/constants/products";
 
 export default function ViviendaPage() {
     return (
@@ -20,7 +21,7 @@ export default function ViviendaPage() {
             <PageHero
                 title="Créditos para "
                 highlightText="Vivienda"
-                description="Financiamiento para remodelación, adquisición y construcción de tu hogar."
+                description="Financiamiento para remodelación y reparación de tu vivienda."
                 icon={Home}
                 badge="POPULAR"
                 backText="Volver a Préstamos"
@@ -38,11 +39,10 @@ export default function ViviendaPage() {
                             </h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-6">
                                 Los <strong className="text-primary-blue">Créditos para Vivienda</strong> están diseñados
-                                para ayudarte a cumplir el sueño de tener tu propio hogar, ya sea para
-                                adquisición, construcción o remodelación.
+                                para ayudarte a mejorar tu vivienda, ya sea para remodelación o reparación.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Con plazos extendidos y tasas competitivas, te acompañamos en este
+                                Con tasas competitivas, te acompañamos en este
                                 importante paso hacia el bienestar de tu familia.
                             </p>
 
@@ -50,14 +50,7 @@ export default function ViviendaPage() {
                                 Beneficios
                             </h3>
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
-                                {[
-                                    "Plazos hasta 20 años",
-                                    "Tasas competitivas fijas",
-                                    "Financiamiento hasta el 80%",
-                                    "Asesoría inmobiliaria",
-                                    "Proceso transparente",
-                                    "Cuotas accesibles",
-                                ].map((item) => (
+                                {VIVIENDA_BENEFITS.map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-700">{item}</span>
@@ -68,18 +61,14 @@ export default function ViviendaPage() {
                             <h3 className="font-heading text-xl font-bold text-primary-blue mb-4">
                                 Modalidades
                             </h3>
-                            <div className="grid gap-4 sm:grid-cols-3 mb-8">
-                                <div className="flex items-center gap-3 p-4 rounded-xl bg-primary-blue/5 border border-primary-blue/10">
-                                    <Home className="h-6 w-6 text-primary-gold" />
-                                    <span className="text-gray-700 font-medium">Adquisición</span>
-                                </div>
-                                <div className="flex items-center gap-3 p-4 rounded-xl bg-primary-blue/5 border border-primary-blue/10">
-                                    <Building2 className="h-6 w-6 text-primary-gold" />
-                                    <span className="text-gray-700 font-medium">Construcción</span>
-                                </div>
+                            <div className="grid gap-4 sm:grid-cols-2 mb-8">
                                 <div className="flex items-center gap-3 p-4 rounded-xl bg-primary-blue/5 border border-primary-blue/10">
                                     <Hammer className="h-6 w-6 text-primary-gold" />
                                     <span className="text-gray-700 font-medium">Remodelación</span>
+                                </div>
+                                <div className="flex items-center gap-3 p-4 rounded-xl bg-primary-blue/5 border border-primary-blue/10">
+                                    <Wrench className="h-6 w-6 text-primary-gold" />
+                                    <span className="text-gray-700 font-medium">Reparación</span>
                                 </div>
                             </div>
                         </div>
@@ -89,23 +78,8 @@ export default function ViviendaPage() {
                             <div className="sticky top-32 rounded-2xl bg-primary-blue/5 p-6 border-2 border-primary-gold">
                                 <div className="text-center mb-6">
                                     <Home className="h-10 w-10 text-primary-gold mx-auto mb-3" />
-                                    <p className="text-sm text-gray-500">Financiamiento</p>
-                                    <p className="text-2xl font-bold text-primary-blue">Hasta 80%</p>
-                                </div>
-
-                                <div className="space-y-4 mb-6">
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Plazo máximo</span>
-                                        <span className="font-semibold text-primary-gold">20 años</span>
-                                    </div>
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Tasa</span>
-                                        <span className="font-semibold text-primary-blue">Fija competitiva</span>
-                                    </div>
-                                    <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Garantía</span>
-                                        <span className="font-semibold text-primary-gold">Hipotecaria</span>
-                                    </div>
+                                    <p className="text-sm text-gray-500">Crédito para Vivienda</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Remodelación y Reparación</p>
                                 </div>
 
                                 <Link href="/contacto">
@@ -129,10 +103,10 @@ export default function ViviendaPage() {
                 <div className="container mx-auto px-6 text-center">
                     <Sparkles className="h-10 w-10 text-primary-gold mx-auto mb-4" />
                     <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
-                        ¡Haz realidad el sueño de tu hogar!
+                        ¡Mejora tu vivienda hoy!
                     </h2>
                     <p className="text-white/80 mb-6 max-w-xl mx-auto">
-                        Te ayudamos a construir, comprar o remodelar tu casa.
+                        Te ayudamos a remodelar o reparar tu vivienda con las mejores condiciones.
                     </p>
                     <Link href="/contacto">
                         <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>

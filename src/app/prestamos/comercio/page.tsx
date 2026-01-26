@@ -12,6 +12,7 @@ import {
     TrendingUp,
     ShieldCheck
 } from "lucide-react";
+import { COMERCIO_BENEFITS } from "@/constants/products";
 
 export default function ComercioPage() {
     return (
@@ -41,7 +42,7 @@ export default function ComercioPage() {
                                 modernizar sus negocios.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Con montos más elevados y plazos adaptados a la realidad comercial, te ayudamos
+                                Con plazos adaptados a la realidad comercial, te ayudamos
                                 a llevar tu negocio al siguiente nivel.
                             </p>
 
@@ -49,14 +50,7 @@ export default function ComercioPage() {
                                 Beneficios
                             </h3>
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
-                                {[
-                                    "Montos elevados según capacidad",
-                                    "Plazos adaptados al flujo comercial",
-                                    "Tasas competitivas",
-                                    "Desembolso rápido",
-                                    "Asesoría empresarial incluida",
-                                    "Renovación automática disponible",
-                                ].map((item) => (
+                                {COMERCIO_BENEFITS.map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-700">{item}</span>
@@ -88,18 +82,18 @@ export default function ComercioPage() {
                             <div className="sticky top-32 rounded-2xl bg-primary-blue/5 p-6 border border-primary-blue/10">
                                 <div className="text-center mb-6">
                                     <ShoppingBag className="h-10 w-10 text-primary-gold mx-auto mb-3" />
-                                    <p className="text-sm text-gray-500">Monto disponible</p>
-                                    <p className="text-2xl font-bold text-primary-blue">Hasta $50,000</p>
+                                    <p className="text-sm text-gray-500">Crédito de Comercio</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Para comerciantes</p>
                                 </div>
 
                                 <div className="space-y-4 mb-6">
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Aprobación</span>
-                                        <span className="font-semibold text-primary-gold">48-72 horas</span>
+                                        <span className="font-semibold text-primary-gold">Rápida</span>
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Plazo</span>
-                                        <span className="font-semibold text-primary-blue">Hasta 60 meses</span>
+                                        <span className="text-gray-600">Plazos</span>
+                                        <span className="font-semibold text-primary-blue">Flexibles</span>
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Tasas</span>

@@ -52,9 +52,9 @@ const services: Service[] = [
     // Productos de inversión
     {
         icon: TrendingUp,
-        title: "Acciones Preferidas",
+        title: "Acciones Preferentes",
         description:
-            "Invierte en acciones preferidas y obtén dividendos atractivos. Haz crecer tu patrimonio con seguridad.",
+            "Invierte en acciones preferentes y obtén dividendos atractivos. Haz crecer tu patrimonio con seguridad.",
         features: ["Dividendos competitivos", "Inversión segura", "Rendimiento garantizado"],
         href: "/inversiones/acciones-preferidas",
         variant: "default",
@@ -62,7 +62,7 @@ const services: Service[] = [
     },
     {
         icon: Star,
-        title: "Acciones Preferidas Plus",
+        title: "Acciones Preferentes Plus",
         description:
             "Nuestra opción premium de inversión con los mejores rendimientos del mercado para inversionistas exigentes.",
         features: ["Máximo rendimiento", "Beneficios exclusivos", "Asesoría personalizada"],

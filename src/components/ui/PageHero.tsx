@@ -11,25 +11,25 @@ import { ArrowLeft, LucideIcon } from "lucide-react";
  */
 const HERO_IMAGES: Record<string, string> = {
     // Ahorros
-    "plazo-fijo": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1920&q=80",
-    "vista": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&q=80",
-    "navideno": "https://images.unsplash.com/photo-1512389142860-9e86fc39be02?w=1920&q=80",
-    "infantil": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1920&q=80",
-    "escolar": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80",
+    "plazo-fijo": "https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=1920&q=80", // Crecimiento financiero, gráficos
+    "vista": "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=1920&q=80", // Alcancía, ahorro personal
+    "navideno": "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&q=80", // Navidad, decoraciones festivas
+    "infantil": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1920&q=80", // Niños felices, familia
+    "escolar": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&q=80", // Estudiantes, educación
 
     // Préstamos
-    "microcreditos": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&q=80",
-    "consumo": "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1920&q=80",
-    "comercio": "https://images.unsplash.com/photo-1556742208-999815fca738?w=1920&q=80",
-    "vivienda": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80",
-    "prendarios": "https://images.unsplash.com/photo-1549924231-f129b911e442?w=1920&q=80",
+    "microcreditos": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80", // Emprendedores, negocios pequeños
+    "consumo": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=1920&q=80", // Compras, consumidor
+    "comercio": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80", // Tienda, comercio
+    "vivienda": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920&q=80", // Casa, hogar
+    "prendarios": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1920&q=80", // Vehículos, autos
 
     // Inversiones
-    "acciones-preferidas": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1920&q=80",
-    "acciones-preferidas-plus": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1920&q=80",
+    "acciones-preferidas": "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1920&q=80", // Inversión, finanzas
+    "acciones-preferidas-plus": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80", // Gráficos financieros premium
 
     // Default
-    "default": "https://images.unsplash.com/photo-1560472355-536de3962603?w=1920&q=80",
+    "default": "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1920&q=80", // Finanzas general
 };
 
 interface PageHeroProps {

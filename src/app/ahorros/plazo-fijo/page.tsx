@@ -167,8 +167,8 @@ export default function DepositoPlazoFijoPage() {
                                         <span className="font-semibold text-primary-blue">90 días</span>
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
-                                        <span className="text-gray-600">Intereses</span>
-                                        <span className="font-semibold text-primary-gold">Los mejores</span>
+                                        <span className="text-gray-600">Pago de Intereses</span>
+                                        <span className="font-semibold text-primary-gold">Mensual o al Vencimiento</span>
                                     </div>
                                 </div>
 

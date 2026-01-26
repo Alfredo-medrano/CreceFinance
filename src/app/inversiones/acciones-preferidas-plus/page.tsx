@@ -8,18 +8,18 @@ import {
     ArrowRight,
     CheckCircle2,
     Sparkles,
-    Percent,
     Zap,
     ShieldCheck,
     Star
 } from "lucide-react";
+import { ACCIONES_PREFERIDAS_PLUS_BENEFITS } from "@/constants/products";
 
 export default function AccionesPlusPage() {
     return (
         <>
             {/* Hero */}
             <PageHero
-                title="Acciones Preferidas "
+                title="Acciones Preferentes "
                 highlightText="Plus"
                 description="Mayor rentabilidad con dividendos competitivos y condiciones preferenciales para maximizar el crecimiento de tu capital."
                 icon={TrendingUp}
@@ -35,30 +35,22 @@ export default function AccionesPlusPage() {
                     <div className="grid gap-12 lg:grid-cols-3">
                         <div className="lg:col-span-2">
                             <h2 className="font-heading text-2xl font-bold text-primary-blue mb-6">
-                                ¿Qué son las Acciones Preferidas Plus?
+                                ¿Qué son las Acciones Preferentes Plus?
                             </h2>
                             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                                Las <strong className="text-primary-blue">Acciones Preferidas Plus</strong> son una alternativa
+                                Las <strong className="text-primary-blue">Acciones Preferentes Plus</strong> son una alternativa
                                 de inversión dirigida a quienes buscan <strong className="text-primary-gold">mayor rentabilidad</strong>,
-                                ofreciendo dividendos competitivos y condiciones preferenciales.
+                                obteniendo dividendos preferenciales y condiciones preferenciales.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Este producto está orientado a inversionistas que desean maximizar el crecimiento de su
-                                capital, participando activamente en el desarrollo y expansión de <strong className="text-primary-gold">CRECE FINANCE</strong>.
+                                Este producto está orientado a inversionistas que desean maximizar el crecimiento de su capital.
                             </p>
 
                             <h3 className="font-heading text-xl font-bold text-primary-blue mb-4">
                                 Beneficios
                             </h3>
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
-                                {[
-                                    "Dividendos superiores frente a otras acciones",
-                                    "Condiciones preferenciales exclusivas",
-                                    "Participación en el crecimiento institucional",
-                                    "Inversión sólida y confiable",
-                                    "Mayor rentabilidad a largo plazo",
-                                    "Asesoría personalizada para inversionistas",
-                                ].map((item) => (
+                                {ACCIONES_PREFERIDAS_PLUS_BENEFITS.map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-700">{item}</span>
@@ -91,7 +83,7 @@ export default function AccionesPlusPage() {
                                 <div className="text-center mb-6">
                                     <TrendingUp className="h-10 w-10 text-primary-gold mx-auto mb-3" />
                                     <p className="text-sm text-gray-500">Tipo de inversión</p>
-                                    <p className="text-2xl font-bold text-primary-blue">Preferidas Plus</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Preferentes Plus</p>
                                 </div>
 
                                 <div className="space-y-4 mb-6">
@@ -133,7 +125,7 @@ export default function AccionesPlusPage() {
                         ¡Maximiza el crecimiento de tu capital!
                     </h2>
                     <p className="text-white/80 mb-6 max-w-xl mx-auto">
-                        Las Acciones Preferidas Plus te ofrecen los mejores rendimientos del mercado.
+                        Las Acciones Preferentes Plus te ofrecen los mejores rendimientos del mercado.
                     </p>
                     <Link href="/contacto">
                         <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>

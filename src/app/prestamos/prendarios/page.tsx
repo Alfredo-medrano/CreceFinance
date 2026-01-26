@@ -12,6 +12,7 @@ import {
     Smartphone,
     ShieldCheck
 } from "lucide-react";
+import { PRENDARIOS_BENEFITS } from "@/constants/products";
 
 export default function PrenPage() {
     return (
@@ -35,28 +36,17 @@ export default function PrenPage() {
                             <h2 className="font-heading text-2xl font-bold text-primary-blue mb-6">
                                 ¿Qué son los Créditos Prendarios?
                             </h2>
-                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                            <p className="text-gray-600 text-lg leading-relaxed mb-8">
                                 Los <strong className="text-primary-blue">Créditos Prendarios</strong> son préstamos
                                 respaldados por una garantía (prenda) como vehículos, maquinaria u otros bienes
                                 de valor, lo que permite acceder a mejores tasas y mayores montos.
-                            </p>
-                            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Este tipo de crédito ofrece mayor seguridad tanto para el cliente como para
-                                la institución, resultando en condiciones más favorables para ti.
                             </p>
 
                             <h3 className="font-heading text-xl font-bold text-primary-blue mb-4">
                                 Beneficios
                             </h3>
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
-                                {[
-                                    "Tasas de interés reducidas",
-                                    "Montos más elevados",
-                                    "Mayor facilidad de aprobación",
-                                    "Plazos extendidos",
-                                    "Conservas el uso del bien",
-                                    "Proceso transparente",
-                                ].map((item) => (
+                                {PRENDARIOS_BENEFITS.map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
                                         <span className="text-gray-700">{item}</span>

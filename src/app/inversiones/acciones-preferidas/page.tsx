@@ -8,7 +8,6 @@ import {
     ArrowRight,
     CheckCircle2,
     Sparkles,
-    TrendingUp,
     Clock,
     ShieldCheck,
     Percent
@@ -20,8 +19,8 @@ export default function AccionesPrefsPage() {
             {/* Hero */}
             <PageHero
                 title="Acciones "
-                highlightText="Preferidas"
-                description="Rendimientos fijos y atractivos a través del pago periódico de dividendos, conforme a las políticas aprobadas por la institución."
+                highlightText="Preferentes"
+                description="Rendimientos fijos y atractivos a través del pago de dividendos."
                 icon={Award}
                 backText="Volver a Inversiones"
                 backHref="/inversiones"
@@ -34,16 +33,11 @@ export default function AccionesPrefsPage() {
                     <div className="grid gap-12 lg:grid-cols-3">
                         <div className="lg:col-span-2">
                             <h2 className="font-heading text-2xl font-bold text-primary-blue mb-6">
-                                ¿Qué son las Acciones Preferidas?
+                                ¿Qué son las Acciones Preferentes?
                             </h2>
-                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                                Las <strong className="text-primary-blue">Acciones Preferidas</strong> están diseñadas para
-                                inversionistas que buscan rendimientos fijos y atractivos, a través del pago periódico
-                                de dividendos, conforme a las políticas aprobadas por la institución.
-                            </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Estas acciones permiten participar en el crecimiento de <strong className="text-primary-gold">CRECE FINANCE</strong>,
-                                fortaleciendo el capital institucional y generando beneficios estables para nuestros inversionistas.
+                                Las <strong className="text-primary-blue">Acciones Preferentes</strong> están diseñadas para
+                                inversionistas que buscan rendimientos fijos y atractivos, a través del pago de dividendos.
                             </p>
 
                             <h3 className="font-heading text-xl font-bold text-primary-blue mb-4">
@@ -52,11 +46,8 @@ export default function AccionesPrefsPage() {
                             <div className="grid gap-4 sm:grid-cols-2 mb-8">
                                 {[
                                     "Rendimiento fijo mediante el pago de dividendos",
-                                    "Prioridad en la distribución de utilidades",
                                     "Inversión a mediano y largo plazo",
                                     "Respaldo institucional sólido y confiable",
-                                    "Participación en el crecimiento institucional",
-                                    "Transparencia en la información financiera",
                                 ].map((item) => (
                                     <div key={item} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary-gold flex-shrink-0 mt-0.5" />
@@ -90,7 +81,7 @@ export default function AccionesPrefsPage() {
                                 <div className="text-center mb-6">
                                     <Award className="h-10 w-10 text-primary-gold mx-auto mb-3" />
                                     <p className="text-sm text-gray-500">Tipo de inversión</p>
-                                    <p className="text-2xl font-bold text-primary-blue">Acciones Preferidas</p>
+                                    <p className="text-2xl font-bold text-primary-blue">Acciones Preferentes</p>
                                 </div>
 
                                 <div className="space-y-4 mb-6">
@@ -104,7 +95,7 @@ export default function AccionesPrefsPage() {
                                     </div>
                                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                                         <span className="text-gray-600">Dividendos</span>
-                                        <span className="font-semibold text-primary-gold">Periódicos</span>
+                                        <span className="font-semibold text-primary-gold">Atractivos</span>
                                     </div>
                                 </div>
 
@@ -132,7 +123,7 @@ export default function AccionesPrefsPage() {
                         ¡Invierte en tu futuro hoy!
                     </h2>
                     <p className="text-white/80 mb-6 max-w-xl mx-auto">
-                        Las Acciones Preferidas te ofrecen rendimientos estables y la seguridad que buscas.
+                        Las Acciones Preferentes te ofrecen rendimientos estables y la seguridad que buscas.
                     </p>
                     <Link href="/contacto">
                         <Button variant="primary" size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
