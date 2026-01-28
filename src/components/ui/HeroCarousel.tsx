@@ -120,7 +120,7 @@ export function HeroCarousel({
 
     return (
         <section
-            className={cn("relative h-screen min-h-[700px] w-full overflow-hidden", className)}
+            className={cn("relative h-screen min-h-[700px] w-full overflow-hidden group/carousel", className)}
         >
             {/* Fondo degradado con líneas decorativas */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-blue via-primary-blue-600 to-primary-blue-800 z-0">
@@ -281,10 +281,10 @@ export function HeroCarousel({
                 />
             </div>
 
-            {/* Flechas de navegación */}
+            {/* Flechas de navegación - se ocultan y aparecen al pasar el mouse */}
             <button
                 onClick={prevSlide}
-                className="absolute left-6 top-1/2 z-30 -translate-y-1/2 group"
+                className="absolute left-6 top-1/2 z-30 -translate-y-1/2 group opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300"
                 aria-label="Anterior"
             >
                 <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary-gold/20 backdrop-blur-md text-white transition-all duration-300 hover:bg-primary-gold/40 hover:scale-110 border border-primary-gold/30">
@@ -293,7 +293,7 @@ export function HeroCarousel({
             </button>
             <button
                 onClick={nextSlide}
-                className="absolute right-6 top-1/2 z-30 -translate-y-1/2 group"
+                className="absolute right-6 top-1/2 z-30 -translate-y-1/2 group opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300"
                 aria-label="Siguiente"
             >
                 <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary-gold/20 backdrop-blur-md text-white transition-all duration-300 hover:bg-primary-gold/40 hover:scale-110 border border-primary-gold/30">
