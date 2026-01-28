@@ -73,10 +73,13 @@ export function ChatBot() {
             {/* Ventana del chat */}
             <div
                 className={cn(
-                    "fixed bottom-6 right-6 z-50 w-[380px] h-[600px] max-h-[85vh] rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 transform origin-bottom-right flex flex-col",
-                    "bg-gray-50 border border-gray-200",
+                    "fixed z-50 flex flex-col shadow-2xl overflow-hidden transition-all duration-500 transform origin-bottom-right bg-gray-50 border-gray-200",
+                    // Mobile Styles (Default)
+                    "bottom-0 right-0 w-full h-[100dvh] rounded-none border-t",
+                    // Desktop Styles (sm and up)
+                    "sm:bottom-6 sm:right-6 sm:w-[380px] sm:h-[600px] sm:max-h-[85vh] sm:rounded-2xl sm:border",
                     isOpen
-                        ? "scale-100 opacity-100 translate-y-0"
+                        ? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
                         : "scale-0 opacity-0 translate-y-10 pointer-events-none"
                 )}
             >
